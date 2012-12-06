@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<!--
+
+    Configuration file for UrlRewriteFilter
+    http://www.tuckey.org/urlrewrite/
+
+-->
+<urlrewrite>
+
+	<!-- interaction -->
+	<rule>
+		<from>^/interaction/index.html$</from>
+		<to>/interaction/index.do</to>
+	</rule>
+	
+	<rule>
+		<from>^/interaction/index/xc/page/([0-9]+)_([0-9]+).html$</from>
+		<to>/interaction/index.do?type=$1&amp;pageNumberXc=$2</to>
+	</rule>
+	<rule>
+		<from>^/interaction/index/ts/page/([0-9]+)_([0-9]+).html$</from>
+		<to>/interaction/index.do?type=$1&amp;pageNumberTs=$2</to>
+	</rule>
+	<rule>
+		<from>^/interaction/index/zx/page/([0-9]+)_([0-9]+).html$</from>
+		<to>/interaction/index.do?type=$1&amp;pageNumberZx=$2</to>
+	</rule>
+	
+	<rule>
+		<from>^/interaction/search.html$</from>
+		<to>/interaction/search.do</to>
+	</rule>
+	<rule>
+		<from>^/interaction/search/page/([0-9]+)_([0-9]+)_(.*).html$</from>
+		<to>/interaction/search.do?type=$1&amp;pageNumber=$2&amp;title=$3</to>
+	</rule>
+	
+	<rule>
+		<from>^/interaction/organ/search/([0-9]+).html$</from>
+		<to>/interaction/organsearch.do?id=$1</to>
+	</rule>
+	<rule>
+		<from>^/interaction/organ/search/page/([0-9]+)_([0-9]+).html$</from>
+		<to>/interaction/organsearch.do?id=$1&amp;pageNumber=$2</to>
+	</rule>
+	
+	<rule>
+		<from>^/interaction/list/([0-9]+).html$</from>
+		<to>/interaction/list.do?currentTable=$1</to>
+	</rule>
+	<rule>
+		<from>^/interaction/list/page/([0-9]+)_([0-9]+)_([0-9]+).html$</from>
+		<to>/interaction/list.do?type=$1&amp;pageNumber=$2&amp;currentTable=$3</to>
+	</rule>
+	<rule>
+		<from>^/interaction/detail/([0-9]+).html$</from>
+		<to>/interaction/detail.do?id=$1</to>
+	</rule>
+	
+	<rule>
+		<from>^/interaction/searchresult/page/([0-9]+)_([0-9]+)_([0-9]+)_(.*)_(.*)_(.*).html$</from>
+		<to>/interaction/searchresult.do?searchRange=$1&amp;searchChannel=$2&amp;pageNumber=$3&amp;beginDate=$4&amp;endDate=$5&amp;searchKey=$6</to>
+	</rule>
+	
+	<!-- online -->
+	<rule>
+		<from>^/online/index.html$</from>
+		<to>/online/index.do</to>
+	</rule>
+	<rule>
+		<from>^/online/working/([0-9]+)_([0-9]+).html$</from>
+		<to>/online/working.do?workingId=$1&amp;parentId=$2</to>
+	</rule>
+	<rule>
+		<from>^/online/organ$</from>
+		<to>/online/organ.do</to>
+	</rule>
+	<rule>
+		<from>^/online/organ/([0-9]+).html$</from>
+		<to>/online/organ.do?organId=$1</to>
+	</rule>
+	<rule>
+		<from>^/online/citizen/([0-9]+).html$</from>
+		<to>/online/citizen.do?citizenId=$1</to>
+	</rule>
+	<rule>
+		<from>^/online/matter/([0-9]+)_([0-9]+).html$</from>
+		<to>/online/matter.do?organId=$1&amp;workingId=$2</to>
+	</rule>
+	<rule>
+		<from>^/online/advisor/([0-9]+)_([0-9]+).html$</from>
+		<to>/online/advisor.do?organId=$1&amp;workingId=$2</to>
+	</rule>
+	<rule>
+		<from>^/online/advisorsearch/([0-9]+)_([0-9]+).html$</from>
+		<to>/online/advisorSearch.do?organId=$1&amp;workingId=$2</to>
+	</rule>
+	<rule>
+		<from>^/online/matterannex/([0-9]+)_([0-9]+).html$</from>
+		<to>/online/matterannex.do?organId=$1&amp;workingId=$2</to>
+	</rule>
+	<rule>
+		<from>^/online/working/page/([0-9]+)_([0-9]+)_([0-9]+).html$</from>
+		<to>/online/working.do?workingId=$1&amp;parentId=$2&amp;pageNumber=$3</to>
+	</rule>
+	<rule>
+		<from>^/online/advisorsearch/page/([0-9]+)_([0-9]+)_([0-9]+)_(.*).html$</from>
+		<to>/online/advisorSearch.do?matterId=$1&amp;organId=$2&amp;pageNumber=$3&amp;title=$4</to>
+	</rule>
+	<rule>
+		<from>^/online/citizen/page/([0-9]+)_([0-9]+).html$</from>
+		<to>/online/citizen.do?citizenId=$1&amp;pageNumber=$2</to>
+	</rule>
+	<rule>
+		<from>^/online/organ/page/([0-9]+)_([0-9]+).html$</from>
+		<to>/online/organ.do?organId=$1&amp;pageNumber=$2</to>
+	</rule>
+	<rule>
+		<from>^/online/search.html$</from>
+		<to>/online/search.do</to>
+	</rule>
+	<rule>
+		<from>^/online/search/page/([0-9]+)_(.*).html$</from>
+		<to>/online/search.do?pageNumber=$1&amp;title=$2</to>
+	</rule>
+</urlrewrite>

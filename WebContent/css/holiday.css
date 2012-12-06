@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* CSS Document */
+
+#holiday{ text-align:center; background:url(/images/holiday_bg.jpg) repeat-x; position:relative; }
+#holiday .close{ width:30px; height:18px; line-height:18px; text-align:center; border:#999 1px solid; background:#FFF; position:absolute; top: 0px; right: 0px; }

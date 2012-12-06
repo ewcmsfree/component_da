@@ -1,8 +1,12 @@
+/**
+ *选项卡切换脚本
+ *el当前对像trid选项卡对象tcount选项卡数量； class1,class2样式
+ */
 function ChangeFoldern(el,trid,tcount,class1,class2)
 
 {
-          var DocumentReadyTF=false;
-          if(document.readyState=='complete') DocumentReadyTF=true;
+          var DocumentReadyTF=true;
+         // if(document.readyState=='complete') DocumentReadyTF=true;
 	var OperObj=null;
 
 	var j;
@@ -56,4 +60,16 @@ function ChangeFoldern(el,trid,tcount,class1,class2)
 
 	}
 	
+}
+function HTMLEncode(text)
+{
+	text = text.replace(/&/g, "&amp;") ;
+	text = text.replace(/"/g, "&quot;") ;
+	text = text.replace(/</g, "&lt;") ;
+	text = text.replace(/>/g, "&gt;") ;
+	text = text.replace(/'/g, "&#146;") ;
+	text = text.replace(/\ /g,"&nbsp;");
+	text = text.replace(/\n/g,"<br>");
+	text = text.replace(/\t/g,"&nbsp;&nbsp;&nbsp;&nbsp;");
+	return text;
 }

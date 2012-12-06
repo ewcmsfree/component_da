@@ -1,0 +1,11 @@
+html,body{ background-color: #FFFFFF; color: #000000; height:100%; margin:0; padding:0; border:none;}
+body,input,font,button select,td { margin: 0; font-size: 12px; font-family: Tahoma, SimSun, sans-serif;}
+a{text-decoration:none;}
+a:link{color:#6666ff;}
+a:visited{color:#6666ff;}
+a:hover,a:active,a:focus{color:#6666ff;text-decoration:underline;}
+.error{margin-left: 5px;padding-left: 22px;background:url('../image/no.png') no-repeat;color:#ff0000;font-size: 13px;}
+.success{width: 30px;margin-left: 5px;padding-left: 22px;background:url('../image/ok.png') no-repeat;color:#ff0000;font-size: 13px;}
+.btn_submit {width:95px;height:28px;line-height:28px;text-align:center;margin-top:10px;font-size:14px;font-weight:bold;cursor:pointer;}
+iframe.editifr{border:0;margin:0;padding:0;width:100%;height:100%;overflow:hidden;border:none;}
+.separate{ border-bottom:1px solid #cad6df;}

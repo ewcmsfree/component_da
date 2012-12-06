@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript">
+            function hot_init(data){
+                var html = '<table width="95%"  border="0" cellpadding="2" cellspacing="0" class="hui">';
+                for(var i = 0 ; i < data.length; i++){
+                    html = html+'<tr>';
+                    var value = data[i];
+                    var index = i + 1;
+                    html = html + '<td><img src="../images/num/no'+index+'b.jpg" width="13" height="13"></td>'
+                    html = html + '<td height="25"><div align="left"><a href="'+value.url+'" target="_blank">'+value.title+'</a></div></td>';
+                    html = html + '</tr>';
+                }
+                html = html + '</table>';
+
+                document.getElementById("hot_id").innerHTML = html;
+            }
+        </script>
+    </head>
+    <body>
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td height="30"><div align="left">　<span class="red_bt"><strong>热点信息排行</strong></span></div></td>
+            </tr>
+        </table>
+        <div id="hot_id">
+
+        </div>
+        <script type="text/javascript" src="/hot/main.js?callback=hot_init"></script>
+    </body>
+</html>

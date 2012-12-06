@@ -1,0 +1,14 @@
+.formFieldError {white-space: nowrap;vertical-align: middle;}
+.formFieldError ul{margin: 0px;padding: 3px;vertical-align: middle;float:left;list-style:none;color: #FF3300;}
+.formFieldError ul li{float: left;list-style:none;}
+input.inputradio{ margin: 1px 3px 0 0;}
+select {border: 1px solid #667788; vertical-align: middle; margin: 0;}
+/*form table*/
+.formtable{width:100%;}
+.formtable td{padding:5px 1px 5px 4px;}
+/*
+.tdtitle{text-align: right; height:30px;white-space: nowrap; }
+.tdinput{text-align: left;white-space: nowrap; }
+*/
+.title{font-size: 16px;font-weight: bold; height:35px; line-height:35px;}
+.hide{display: none;}

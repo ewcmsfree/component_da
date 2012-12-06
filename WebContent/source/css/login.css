@@ -1,0 +1,14 @@
+ul{list-style: none;}
+.title{font-size: 16px;font-weight: bold;border-top:1px solid #cad6df;width:670px; height:35px; line-height:35px; clear:both;}
+.title_sub{font-size: 14px;font-weight: bold;color:#ff7f00;padding-left:25px;}
+.inputtxt{color:#444444;}
+.main {width:550px; clear:both; margin:0 auto; position:relative;}
+.main_cen {height:auto;background:#F6F6F6; padding:10px 0;}
+.input_l {float:left;width:85px;height:30px;line-height:30px;text-align:right;padding-right:5px;}
+.input_r {float:left;width:380px;margin-bottom:12px;position:relative;}
+.inputfloat {float:left;margin-left:10px;}
+.passW {float:left;position:relative;margin-top:4px;}
+.passW_w {display:block;width:48px;height:6px; overflow:hidden; border:1px solid #d0d0d0;}
+.passW_t {position:absolute;top:11px;left:20px;font-family:"宋体";color:#666;}
+.passW_curr .passW_t{color: red;}
+.passW_curr .passW_w{background-color:#3300ff;}

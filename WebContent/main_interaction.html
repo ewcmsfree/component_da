@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>为您服务！</title>
+        <script type="text/javascript">
+            function intercation_init(data){
+                var element = document.getElementById("interaction_id");
+                insert_interaction(element,data.interactions);
+                element = document.getElementById("replay_ratio_id");
+                insert_replay_ratio(element,data.ratios,0);
+                element = document.getElementById("noreplay_ratio_id");
+                insert_replay_ratio(element,data.ratios,1)
+            }
+
+            function insert_interaction(element,interactions){
+                var innerHtml = '<table width="100%"  border="1" cellpadding="3" cellspacing="1" bordercolor="#FFFFFF" bgcolor="#CCCCCC" class="hui">'+
+                    '<tr bgcolor="#F0F0F0">' +
+                    '<td width="60" height="25" background="images/an_bg.jpg" bgcolor="#F0F0F0"><div align="center">类型</div></td>'+
+                    '<td background="images/an_bg.jpg"><div align="center">标题</div></td>'+
+                    '<td width="100" background="images/an_bg.jpg"><div align="center">受理单位</div></td>'+
+                    '<td width="60" background="images/an_bg.jpg"><div align="center">状态</div></td>'+
+                    '<td width="60" background="images/an_bg.jpg"><div align="center">日期</div></td>'+
+                    '</tr>'
+
+                for(var i = 0 ; i < interactions.length; i++ ){
+                    var interaction = interactions[i];
+                    if(i % 2 == 0){
+                        innerHtml =innerHtml + '<tr bgcolor="#FFFFFF">';
+                    }else{
+                        innerHtml =innerHtml + '<tr bgcolor="#F2F2F2">';
+                    }
+                    innerHtml = innerHtml + '<td height="22"><div align="center">'+interaction.type+'</div></td>';
+                    innerHtml = innerHtml + '<td><div align="left"><a class=hui href="/component/interaction/detail.do?id='+interaction.id+'" target=_blank>'+interaction.title+'</a></div></td>';
+                    innerHtml = innerHtml + '<td><div align="center">'+interaction.organ+'</div></td>';
+                    innerHtml = innerHtml + '<td><div align="center">'+interaction.state+'</div></td>';
+                    innerHtml = innerHtml + '<td><div align="center">'+interaction.date+'</div></td>';
+                    innerHtml = innerHtml + '</tr>';
+                }
+                innerHtml = innerHtml + "</table>"
+
+                element.innerHTML = innerHtml;
+            }
+
+            function insert_replay_ratio(element,ratios,type){
+                var innerHtml = '<table  width="100%"  border="0" cellspacing="0" cellpadding="0">';
+                for(var i = 0 ; i < ratios.length; i++){
+                    var ratio = ratios[i];
+                    if(ratio.type != type){
+                        continue;
+                    }
+                    innerHtml =innerHtml + '<tr>';
+                    innerHtml =innerHtml + '<td height="22" class="hui">'+ ratio.organ + '</td>';
+                    innerHtml = innerHtml + '<td class="hui">'+ ratio.ratio + '%</td>';
+                    innerHtml = innerHtml + '<tr>';
+                }
+                innerHtml = innerHtml + "</table>"
+                element.innerHTML = innerHtml;
+            }
+        </script>
+    <body>
+        <table width="100%"  border="0" cellspacing="4" cellpadding="0">
+            <tr>
+                <td>
+                    <div id="interaction_id"></div>
+                </td>
+                <td width="200" valign="top"><table width="100%"  border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+                        <tr>
+                            <td height="25" background="images/an_bg.jpg" bgcolor="#FFFFFF"><div align="center" class="style13">互动平台部门回复率排行</div></td>
+                        </tr>
+                    </table>
+                    <div id="replay_ratio_id"></div>
+                    <table width="100%"  border="0" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+                        <tr>
+                            <td height="25" background="images/an_bg.jpg" bgcolor="#FFFFFF"><div align="center" class="style13">未回复率排行</div></td>
+                        </tr>
+                    </table>
+                    <div id="noreplay_ratio_id"></div>
+                </td>
+            </tr>
+        </table>
+        <script type="text/javascript" src="/interaction/main.js?callback=intercation_init"></script>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="username">
+        <field-validator type="requiredstring">
+            <message>不能为空!</message>
+        </field-validator>
+    </field>
+    <field name="password">
+        <field-validator type="requiredstring">
+            <message>不能为空!</message>
+        </field-validator>
+    </field>
+    <field name="checkcode">
+        <field-validator type="requiredstring">
+            <message>不能为空!</message>
+        </field-validator>
+    </field>
+    <field name="title">
+        <field-validator type="requiredstring">
+            <message>不能为空!</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">40</param>
+            <param name="trim">true</param>
+            <message>不能超过40个字符</message>
+        </field-validator>
+    </field>
+    <field name="content">
+        <field-validator type="requiredstring">
+            <message>不能为空！</message>
+        </field-validator>
+    </field>
+    <field name="organId">
+        <field-validator type="required">
+            <message>不能为空，如不清楚提交部门，请选中“不清楚提交部门”选项，我们会帮你转发到相应处理部门。</message>
+        </field-validator>
+    </field>
+</validators>
+
+

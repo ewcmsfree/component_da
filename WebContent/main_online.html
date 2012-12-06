@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>为您服务！</title>
+        <script type="text/javascript">
+            function online_init(data){
+                var tab = working_tab_html(data);
+                var element = document.getElementById("online_tab_id");
+                element.innerHTML = tab;
+                var body = '';
+                for(var i = 0 ; i < data.length; i++){
+                    body = body + working_body_html(data[i].children,data[i].id,i);
+                }
+                element = document.getElementById("online_body_id");
+                element.innerHTML = body;
+            }
+
+            function working_tab_html(workings){
+                var html =  '<table width="100%"  border="0" cellspacing="0" cellpadding="0">';
+                html = html + "<tr>";
+                html = html + '<td width="10" class="bottom_line">&nbsp;</td>';
+                for(var i = 0 ; i < workings.length; i++ ){
+                    var working = workings[i];
+                    html = html + '<td class="szy_line" id="mndivide'+ i +'" onMouseOver="ChangeFoldern(this,\'mndivide\',\'3\',\'\',\'images/an_bg.jpg\',\'szy_line\',\'li_line\');" style="cursor:hand;"><div id="dmndivide1" align="center" class="style9 hui">'+working.name+'</div></td>';
+                    if(i < 2){
+                        html = html + '<td width="5" class="bottom_line">&nbsp;</td>';
+                    }
+                    if(i == 2){break;}
+                }
+                html = html + '<td width="10" class="bottom_line">&nbsp;</td>';
+                html = html + '</tr>';
+                html = html + '</table>';
+                
+                return html;
+            }
+
+
+            function working_body_html(workings,parentId,index){
+                var html = '<table width="98%"  border="1" cellpadding="0" cellspacing="1" bordercolor="#FFFFFF" bgcolor="#CCCCCC" class="hui" id="tmndivide'+index+'" style="display: ">';
+                for(var row = 0 ; row < 4; row++){
+                    html =html + '<tr>';
+                    for(var col = 0 ; col < 4 ; col++){
+                        var index = row * 4 + col;
+                        if(index > workings.length -1){
+                            html =html + '<td height="27">&nbsp;</td>';
+                        }else{
+                            var working = workings[index];
+                            html =html + '<td height="27"><a href="/component/online/working.do?workingId=' + working.id +'&parentId='+parentId+'"><div align="center">'+working.name+'</div></a></td>';
+                        }
+                    }
+                    html = html + '</tr>';
+                }
+                html = html + "</table>";
+                
+               return html
+            }
+        </script>
+    <body>
+        <div id="online_tab_id">
+        </div>
+        <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td height="4"></td>
+            </tr>
+        </table>
+        <div id ="online_body_id" align="center">
+        </div>
+        <script type="text/javascript" src="/online/main.js?callback=online_init"></script>
+    </body>
+</html>

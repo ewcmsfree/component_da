@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+    <field name="userInfo.zip">
+        <field-validator type="regex">
+            <param name="expression"><![CDATA[([1-9]{1}(\d+){5})]]>
+            </param>
+            <message>邮编格式错误!</message>
+        </field-validator>
+    </field>
+    <field name="userInfo.phone">
+        <field-validator type="regex">
+            <param name="expression"><![CDATA[((\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14})]]>
+            </param>
+            <message>电话号码错误!</message>
+        </field-validator>
+    </field>
+    <field name="userInfo.mphone">
+        <field-validator type="regex">
+            <param name="expression"><![CDATA[(^((\(\d{2,3}\))|(\d{3}\-))?13\d{9}$)]]>
+            </param>
+            <message>手机号码错误!</message>
+        </field-validator>
+    </field>
+</validators>
+
+

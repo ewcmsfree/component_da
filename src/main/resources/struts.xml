@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="webwork.devMode" value="false"/>
+	
+    <package name="interaction"  extends="struts-default" namespace="/interaction">
+    	<action name="gwhsearch" class="com.ewcms.component.gwh.web.SearchAction">
+            <result name="success">/WEB-INF/page/gwh/search.jsp</result>
+        </action>
+        <action name="searchresult" class="com.ewcms.component.gwh.web.SearchResultAction">
+            <result name="success">/WEB-INF/page/gwh/searchresult.jsp</result>
+        </action>
+        
+        <action name="index" class="com.ewcms.component.interaction.web.IndexAction">
+            <result name="success">/WEB-INF/page/interaction/index.jsp</result>
+        </action>
+        <action name="list" class="com.ewcms.component.interaction.web.ListAction">
+            <result name="success">/WEB-INF/page/interaction/list.jsp</result>
+        </action>
+        <action name="organsearch" class="com.ewcms.component.interaction.web.OrganSearchAction">
+            <result name="success">/WEB-INF/page/interaction/organsearch.jsp</result>
+        </action>
+        <action name="search" class="com.ewcms.component.interaction.web.SearchAction">
+            <result name="success">/WEB-INF/page/interaction/search.jsp</result>
+        </action>
+        <action name="detail" class="com.ewcms.component.interaction.web.DetailAction">
+            <result name="success">/WEB-INF/page/interaction/detail.jsp</result>
+            <result name="error">/error.html</result>
+        </action>
+        <action name="interaction" class="com.ewcms.component.interaction.web.InteractionAction" method="input">
+            <result name="input">/WEB-INF/page/interaction/interaction.jsp</result>
+        </action>
+        <action name="interactionEdit" class="com.ewcms.component.interaction.web.InteractionAction">
+            <result name="input">/WEB-INF/page/interaction/interaction.jsp</result>
+            <result name="success">/WEB-INF/page/interaction/interaction.jsp</result>
+        </action>
+        <action name="speak" class="com.ewcms.component.interaction.web.SpeakAction" method="input">
+            <result name="input">/WEB-INF/page/interaction/speak.jsp</result>
+        </action>
+        <action name="speakEdit" class="com.ewcms.component.interaction.web.SpeakAction">
+            <result name="input">/WEB-INF/page/interaction/speak.jsp</result>
+            <result name="success">/WEB-INF/page/interaction/speak.jsp</result>
+        </action>
+        <action name="organ" class="com.ewcms.component.interaction.web.OrganAction" method="query"/>
+    </package>
+    <package name="user"  extends="struts-default" namespace="/user">
+        <interceptors>
+            <interceptor name="authIntercept" class="com.ewcms.component.auth.filter.AuthorityIntercept"></interceptor>
+            <interceptor-stack name="authInterceptorStack">
+                <interceptor-ref name="authIntercept"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <global-results>
+            <result name="login" type="dispatcher">
+                /WEB-INF/page/user/login.jsp
+            </result>
+        </global-results>
+        <action name="userinfo" class="com.ewcms.component.auth.web.UserInfoAction">
+            <result name="success">/WEB-INF/page/user/userinfo.jsp</result>
+            <interceptor-ref name="authInterceptorStack"/>
+        </action>
+        <action name="userinfoEdit" class="com.ewcms.component.auth.web.UserInfoAction">
+            <result name="input">/WEB-INF/page/user/userinfo.jsp</result>
+            <result name="success">/WEB-INF/page/user/userinfo.jsp</result>
+            <interceptor-ref name="authInterceptorStack"/>
+        </action>
+        <action name="password" class="com.ewcms.component.auth.web.PasswordAction">
+            <result name="input">/WEB-INF/page/user/password.jsp</result>
+            <result name="success">/WEB-INF/page/user/password.jsp</result>
+            <interceptor-ref name="authInterceptorStack"/>
+        </action>
+        <action name="interaction" class="com.ewcms.component.interaction.web.UserAction">
+            <result name="input">/WEB-INF/page/interaction/user.jsp</result>
+            <result name="success">/WEB-INF/page/interaction/user.jsp</result>
+            <interceptor-ref name = "authInterceptorStack"/>
+        </action>
+        <action name="userinteraction" class="com.ewcms.component.interaction.web.InteractionAction" method="input">
+            <result name="input">/WEB-INF/page/interaction/userinteraction.jsp</result>
+            <interceptor-ref name = "authInterceptorStack"/>
+        </action>
+        <action name="userinteractionEdit" class="com.ewcms.component.interaction.web.InteractionAction">
+            <result name="input">/WEB-INF/page/interaction/userinteraction.jsp</result>
+            <result name="success">/WEB-INF/page/interaction/userinteraction.jsp</result>
+            <interceptor-ref name = "authInterceptorStack"/>
+        </action>
+        <action name="advisor" class="com.ewcms.component.online.web.UserAction">
+            <result name="success">/WEB-INF/page/online/user.jsp</result>
+            <interceptor-ref name = "authInterceptorStack"/>
+        </action>
+        <action name="login" class="com.ewcms.component.auth.web.LoginAction">
+            <result name="input" type="dispatcher">/WEB-INF/page/user/login.jsp</result>
+            <result name="go" type="redirect">${goToUrl}</result>
+            <result name="error">/WEB-INF/page/user/login.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">userinfo</param>
+                <param name="username">${username}</param>
+            </result>
+        </action>
+        <action name="logout" class="com.ewcms.component.auth.web.LogoutAction" method="logout"/>
+        <action name="exist" class="com.ewcms.component.auth.web.ExistAction" method="exist"/>
+        <action name="register" class="com.ewcms.component.auth.web.RegisterAction">
+            <result name="input" type="dispatcher">/WEB-INF/page/user/register.jsp</result>
+        </action>
+    </package>
+    <package name="online"  extends="struts-default" namespace="/online">
+        <action name="index" class="com.ewcms.component.online.web.OnlineAction">
+            <result name="success">/WEB-INF/page/online/index.jsp</result>
+        </action>
+        <action name="working" class="com.ewcms.component.online.web.WorkingAction">
+            <result name="success">/WEB-INF/page/online/working.jsp</result>
+        </action>
+        <action name="organ" class="com.ewcms.component.online.web.OrganAction">
+            <result name="success">/WEB-INF/page/online/organ.jsp</result>
+        </action>
+        <action name="matter" class="com.ewcms.component.online.web.MatterAction">
+            <result name="success">/WEB-INF/page/online/matter.jsp</result>
+        </action>
+        <action name="article" class="com.ewcms.component.online.web.ArticleAction">
+            <result name="success">/WEB-INF/page/online/article.jsp</result>
+        </action>
+        <action name="matterannex" class="com.ewcms.component.online.web.MatterAction">
+            <result name="success">/WEB-INF/page/online/matterannex.jsp</result>
+        </action>
+        <action name="advisor" class="com.ewcms.component.online.web.AdvisorAction" method="input">
+            <result name="input">/WEB-INF/page/online/advisor.jsp</result>
+        </action>
+        <action name="advisorEdit" class="com.ewcms.component.online.web.AdvisorAction">
+            <result name="input">/WEB-INF/page/online/advisor.jsp</result>
+            <result name="success">/WEB-INF/page/online/advisor.jsp</result>
+        </action>
+        <action name="advisorSearch" class="com.ewcms.component.online.web.AdvisorSearchAction">
+            <result name="success">/WEB-INF/page/online/advisorsearch.jsp</result>
+        </action>
+        <action name="citizen" class="com.ewcms.component.online.web.CitizenAction">
+            <result name="success">/WEB-INF/page/online/citizen.jsp</result>
+        </action>
+        <action name="search" class="com.ewcms.component.online.web.SearchAction">
+             <result name="input">/WEB-INF/page/online/search.jsp</result>
+            <result name="success">/WEB-INF/page/online/search.jsp</result>
+        </action>
+        <action name="advquery" class="com.ewcms.component.query.web.AdvQueryAction">
+        	<result name="input">/WEB-INF/page/query/index.jsp</result>
+        	<result name="success">/WEB-INF/page/query/index.jsp</result>
+        </action>
+    </package>
+</struts>

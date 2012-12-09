@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>中国瑞昌网欢迎您！</title>
+    <title>中国·德安欢迎您！</title>
     <link href="../css/ruichang.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/swfobject_modified.js" type="text/javascript"></script>
     <script src="../js/changdiv.js" type="text/javascript"></script>

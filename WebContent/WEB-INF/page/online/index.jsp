@@ -13,17 +13,18 @@
   <body>
     <div id="container">
       <s:include value="../top.jsp"/>
+      <div class="clearfloat"></div>
       <s:include value="../header.jsp"/>
       <div class="clearfloat"></div>
       <!--当前位置层-->
       <div class="pos_box">
-        <p class="position"><span>当前位置：</span><a href="/">首页</a>&nbsp;>>&nbsp;在线服务</p>
+        <p class="position"><span>当前位置：</span><a href="/">首页</a>&nbsp;&gt;&gt;&nbsp;在线服务</p>
       </div>
       <!--当前位置层结束-->
       <!--内容层-->
       <div class="zxbs_containt">
       <!--在线办事左边栏-->
-        <div class="zxbs_left">
+      <div class="zxbs_left">
           <div class="out_line">
             <div class="in_line" style=" padding:7px; ">
               <!--左边盒子-->
@@ -87,7 +88,7 @@
                   <li><a href="#">县市检察机关检察机文书</a></li>
                   <li><a href="#">县交警大化道警大化路交</a></li>
                   <li><a href="#">县一中举暨凌金中举暨颁奖</a></li>
-                  <li class="more"><a href="#">更多>></a></li>
+                  <li class="more"><a href="#">更多&gt;&gt;</a></li>
                 </ul>
               </div>
               <!--便民提示盒子结束-->
@@ -135,11 +136,8 @@
 	       <ul class="bs_list">
 	         <s:iterator value="children" id="child">
 	         <s:if test="id != null">                
-	         <s:url action="working" id="url" escapeAmp="false">
-	           <s:param name="workingId" value="#child.id"/>
-	           <s:param name="parentId" value="#working.id"/>
-	         </s:url>
-	         <li><a href="<s:property value="url"/>" target="_blank" ><s:property value="#child.name"/></a></li>
+	         <s:url value="/online/working/%{#child.id}_%{#working.id}.html" id="workingUrl" escapeAmp="false"/>
+             <li><a href="<s:property value="workingUrl"/>" target="_blank" ><s:property value="#child.name"/></a></li>
 	         </s:if>              
 	         </s:iterator>         
 	       </ul>
@@ -153,8 +151,8 @@
            <ul class="bs_list">
              <s:iterator value="organs" status="st">              
              <s:if test="id != null">                
-             <s:url action="organ" id="url" escapeAmp="false"><s:param name="organId" value="id"/></s:url>                
-             <li><a href="<s:property value="url"/>" target="_blank"><s:property value="name"/></a></li>              
+             <s:url value="/online/organ/%{id}.html" id="organUrl" escapeAmp="false"/>
+             <li><a href="<s:property value="organUrl"/>" target="_blank"><s:property value="name"/></a></li>              
              </s:if>            
            </s:iterator>
            </ul>
@@ -163,7 +161,7 @@
          <!--部门办事盒子结束-->
          <!--办件公示盒子-->
          <div class="bjgs_box">
-           <p class="bjgs_tit"><span><a href="#">更多>></a></span>［&nbsp;办件公示&nbsp;］</p>
+           <p class="bjgs_tit"><span><a href="#">更多&gt;&gt;</a></span>［&nbsp;办件公示&nbsp;］</p>
            <div class="bjgs_box_bjtj">
              <ul>
                <li><span>累计收件：</span>87454件</li>

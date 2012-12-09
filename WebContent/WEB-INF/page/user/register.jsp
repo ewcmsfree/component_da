@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>中国瑞昌网——会员注册</title>
+        <title>中国·德安网——会员注册</title>
         <script type="text/javascript" src="<s:url value="/source/js/jquery-1.4.2.min.js"/>"></script>
         <script type="text/javascript" src="<s:url value="/source/js/base.js"/>"></script>
         <script type="text/javascript" src="<s:url value="/source/js/register.js"/>"></script>
@@ -50,7 +50,7 @@
                 <form id="register_form">
                     <div class="main_top">
                         <div style="border-bottom: 2px solid #FF0000;width:670px;margin-bottom: 20px">
-                            <span style="font-size:25px;margin:10px 0;color:#CC0000;font-weight:bold;">中国瑞昌网—</span><span class="style3 head_title_sub">会员注册</span>
+                            <span style="font-size:25px;margin:10px 0;color:#CC0000;font-weight:bold;">中国·德安网—</span><span class="style3 head_title_sub">会员注册</span>
                         </div>
                         <p class="title-no-border">
                             选择用户名
@@ -161,16 +161,16 @@
             <div align="center">
                 <table width="1000"  border="0" class="hui">
                     <tr>
-                        <td><div align="center" class="hui">主办：中共瑞昌市人民政府<strong>　</strong></div></td>
+                        <td><div align="center" class="hui">主办：中共德安县人民政府<strong>　</strong></div></td>
                     </tr>
                     <tr>
                         <td><div align="center" class="style15">
-                                <div align="center" class="hui">承办：瑞昌市人民政府信息化工作办公室　技术支持：瑞昌市人民政府信息化工作办公室　电话：0792-4224685 </div>
+                                <div align="center" class="hui">承办：德安县人民政府信息化工作办公室　技术支持：德安县人民政府信息化工作办公室　电话：0792-4224685 </div>
                             </div></td>
                     </tr>
                     <tr>
                         <td><div align="center" class="hui">
-                                <div align="center" class="hui">Copyright 2010 ruichang.gov.cn All Rights </div>
+                                <div align="center" class="hui">Copyright 2010 dean.gov.cn All Rights </div>
                             </div></td>
                     </tr>
                 </table>

@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="<s:url value="/source/js/jquery-1.4.2.min.js"/>"></script>
-        <title>中国瑞昌网为您服务！</title>
+        <title>中国·德安欢迎您！</title>
         <style type="text/css">
             <!--
             body {

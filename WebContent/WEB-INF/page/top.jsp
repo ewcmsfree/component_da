@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!--顶部信息栏-->
-<script src="/js/accessbar.js" type="text/javascript"></script>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<!--顶部信息栏 开始-->
+<script src="<s:url value='/js/accessbar.js'/>" type="text/javascript"></script>
 <div id="top_inf">
   <div class="top_l">德安县人民政府网站<span>欢迎您！</span></div>
   <div class="top_r">
@@ -23,5 +24,5 @@
     </form>
    </div>
  </div>
-<script src="/js/gb2big5.js" type="text/javascript"></script> 
-<div class="clearfloat"></div>
+<script src="<s:url value='/js/gb2big5.js'/>" type="text/javascript"></script> 
+<!--顶部信息栏 结束-->

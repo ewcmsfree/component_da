@@ -12,14 +12,13 @@
   </head>
   <body>
     <div id="container">
-      <!--顶部信息栏-->
-      <s:include value="../top.jsp"></s:include>
-      <s:include value="../header.jsp"></s:include>
-      <!--政民互动子菜单结束-->
+      <s:include value="../top.jsp"/>
+      <div class="clearfloat"></div>
+      <s:include value="../header.jsp"/>
       <div class="clearfloat"></div>
       <!--当前位置层-->
       <div class="pos_box">
-        <p class="position"><span>当前位置：</span><a href="#">首页</a>&nbsp; >> &nbsp;公众参与</p>
+        <p class="position"><span>当前位置：</span><a href="#">首页</a>&nbsp;&gt;&gt;&nbsp;公众参与</p>
       </div>
       <!--当前位置层结束-->
       <!--内容层-->
@@ -38,9 +37,9 @@
           <div class="zxft_box">
             <p class="zxft_btn"></p>
             <ul class="zxft_tab">
-              <li id="subft1" onMouseOver="ChangeFoldern(this,'subft','3','current','');" class="current">最新访谈</li>
-              <li id="subft2" onMouseOver="ChangeFoldern(this,'subft','3','current','');">访谈预告</li>
-              <li id="subft3" onMouseOver="ChangeFoldern(this,'subft','3','current','');"><a href="#">访谈回顾</a></li>
+              <li id="subft1" onmouseover="ChangeFoldern(this,'subft','3','current','');" class="current">最新访谈</li>
+              <li id="subft2" onmouseover="ChangeFoldern(this,'subft','3','current','');">访谈预告</li>
+              <li id="subft3" onmouseover="ChangeFoldern(this,'subft','3','current','');"><a href="#">访谈回顾</a></li>
             </ul>
             <div class="clearfloat"></div>
             <!--最新访谈盒子-->
@@ -49,7 +48,7 @@
               <p><b>访谈主题：</b>喜迎十八大，志愿我先行</p>
               <p><b>访谈嘉宾：</b>市委书记：江凌</p>
               <p><b>访谈时间：</b>2012-12-03  15：00</p>
-              <p style="padding-left:70px;"><a href="#">进入文字实录>></a></p>
+              <p style="padding-left:70px;"><a href="#">进入文字实录&gt;&gt;</a></p>
             </div>
             <!--最新访谈盒子结束-->
             <!--访谈预告盒子-->
@@ -58,7 +57,7 @@
               <p><b>访谈主题：</b>喜迎十八大，志愿我先行喜迎十八大，志愿我</p>
               <p><b>访谈嘉宾：</b>市委书记：江凌</p>
               <p><b>访谈时间：</b>2012-12-03  15：00</p>
-              <p style="padding-left:70px;"><a href="#">进入直播室>></a></p>
+              <p style="padding-left:70px;"><a href="#">进入直播室&gt;&gt;</a></p>
             </div>
             <!--访谈预告盒子结束-->
             <!--访谈回顾盒子-->
@@ -101,9 +100,9 @@
                 <div class="clearfloat"></div>
                 <div class="letter_tab">
                   <ul>
-                    <li id="letter1" onMouseOver="ChangeFoldern(this,'letter','3','current','');" class="current"><a href="#">建言献策</a></li>
-                    <li id="letter2" onMouseOver="ChangeFoldern(this,'letter','3','current','');"><a href="#">在线咨询</a></li>
-                    <li id="letter3" onMouseOver="ChangeFoldern(this,'letter','3','current','');"><a href="#">投诉监督</a></li>
+                    <li id="letter1" onmouseover="ChangeFoldern(this,'letter','3','current','');" class="current"><a href="<s:url value='/interaction/list/3.html'/>">建言献策</a></li>
+                    <li id="letter2" onmouseover="ChangeFoldern(this,'letter','3','current','');"><a href="<s:url value='/interaction/list/1.html'/>">在线咨询</a></li>
+                    <li id="letter3" onmouseover="ChangeFoldern(this,'letter','3','current','');"><a href="<s:url value='/interaction/list/2.html'/>">投诉监督</a></li>
                   </ul>
                 </div>
                 <div class="clearfloat"></div>
@@ -168,16 +167,16 @@
               <div class="right_box">
                 <div class="right_tab">
                   <ul>
-                    <li id="huifu1" onMouseOver="ChangeFoldern(this,'huifu','2','current','');" class="current">回复排行</li>
-                    <li id="huifu2" onMouseOver="ChangeFoldern(this,'huifu','2','current','');">未回复提示</li>
+                    <li id="huifu1" onmouseover="ChangeFoldern(this,'huifu','2','current','');" class="current">回复排行</li>
+                    <li id="huifu2" onmouseover="ChangeFoldern(this,'huifu','2','current','');">未回复提示</li>
                   </ul>
                 </div>
                 <div class="clearfloat"></div>
                 <div id="thuifu1" class="huifu_box">
                   <table>
-                    <s:iterator value="backCount" status="st">
+                    <s:iterator value="backCount">
                     <tr>
-                      <td ass="t1"><a href="<s:url value='/interaction/organ/search/%{id}.html'/>" target="_blank"><s:property value="name"/></a></td>
+                      <td class="t1"><a href="<s:url value='/interaction/organ/search/%{id}.html'/>" target="_blank"><s:property value="name"/></a></td>
                       <td class="t2"><s:property value="backRatio"/></td>
                     </tr>
                     </s:iterator>
@@ -185,9 +184,9 @@
                 </div>
                 <div id="thuifu2" class="huifu_box" style="display:none;">
                   <table>
-                    <s:iterator value="noBackCount" status="st">
+                    <s:iterator value="noBackCount">
                     <tr>
-                      <td ass="t1"><a href="<s:url value='/interaction/organ/search/%{id}.html'/>" target="_blank"><s:property value="name"/></a></td>
+                      <td class="t1"><a href="<s:url value='/interaction/organ/search/%{id}.html'/>" target="_blank"><s:property value="name"/></a></td>
                       <td class="t2"><s:property value="backRatio"/></td>
                     </tr>
                     </s:iterator>
@@ -195,8 +194,8 @@
                 </div>
                 <div class="right_tab" style="margin-top:10px;">
                   <ul>
-                    <li id="fazhan1" onMouseOver="ChangeFoldern(this,'fazhan','2','current','');" class="current">网上调查</li>
-                    <li id="fazhan2" onMouseOver="ChangeFoldern(this,'fazhan','2','current','');">民意征集</li>
+                    <li id="fazhan1" onmouseover="ChangeFoldern(this,'fazhan','2','current','');" class="current">网上调查</li>
+                    <li id="fazhan2" onmouseover="ChangeFoldern(this,'fazhan','2','current','');">民意征集</li>
                   </ul>
                 </div>
                 <div class="clearfloat"></div>

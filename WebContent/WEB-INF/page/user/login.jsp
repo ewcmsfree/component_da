@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>登录中国瑞昌网</title>
+        <title>登录中国·德安网</title>
         <script type="text/javascript" src="<s:url value="/source/js/jquery-1.4.2.min.js"/>"></script>
         <script type="text/javascript" src="<s:url value="/source/js/base.js"/>"></script>
         <link rel="stylesheet" type="text/css" href='<s:url value="/source/css/base.css"/>'/>
@@ -69,7 +69,7 @@
                             </tr>
                             <tr>
                                 <td width="120px" style="padding-left: 30px;padding-top: 60px;" valign="top" >
-                                    <span class="style41" style="font-size: 15px;">中国瑞昌网登录</span>
+                                    <span class="style41" style="font-size: 15px;">>中国·德安网登录</span>
                                 </td>
                                 <td>
                                     <div class="main">
@@ -132,16 +132,16 @@
                     <td><div align="center">
                 <table width="1000"  border="0" class="hui">
                     <tr>
-                        <td><div align="center" class="hui">主办：中共瑞昌市人民政府<strong>　</strong></div></td>
+                        <td><div align="center" class="hui">主办：中共德安县人民政府<strong>　</strong></div></td>
                     </tr>
                     <tr>
                         <td><div align="center" class="style15">
-                                <div align="center" class="hui">承办：瑞昌市人民政府信息化工作办公室　技术支持：瑞昌市人民政府信息化工作办公室　电话：0792-4224685 </div>
+                                <div align="center" class="hui">承办：德安县人民政府信息化工作办公室　技术支持：德安县人民政府信息化工作办公室　电话：0792-4224685 </div>
                             </div></td>
                     </tr>
                     <tr>
                         <td><div align="center" class="hui">
-                                <div align="center" class="hui">Copyright 2010 ruichang.gov.cn All Rights </div>
+                                <div align="center" class="hui">Copyright 2010 dean.gov.cn All Rights </div>
                             </div></td>
                     </tr>
                 </table>

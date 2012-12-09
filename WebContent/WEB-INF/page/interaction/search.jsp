@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>中国瑞昌网为您服务！</title>
+    <title>中国·德安欢迎您！</title>
     <link href="../css/ruichang.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/swfobject_modified.js" type="text/javascript"></script>
     <script src="../js/changdiv.js" type="text/javascript"></script>

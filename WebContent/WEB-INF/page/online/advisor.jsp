@@ -5,15 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>中国瑞昌网欢迎您！</title>
-    <link href="../css/ruichang.css" rel="stylesheet" type="text/css" />
-    <script src="../Scripts/swfobject_modified.js" type="text/javascript"></script>
-    <script src="../js/changdiv.js" type="text/javascript"></script>
+    <title>中国·德安欢迎您！</title>
+    <link href="<s:url value='/css/dean.css'/>" rel="stylesheet" type="text/css" />
+    <script src="<s:url value='/js/changdiv.js'/>" type="text/javascript"></script>
+    <script src="<s:url value='/Scripts/swfobject_modified.js'/>" type="text/javascript"></script>
     <script type="text/javascript">
-      function MM_jumpMenu(targ,selObj,restore){ //v3.0
-        eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-        if (restore) selObj.selectedIndex=0;
-      }
       function checkcode_refresh(){
 	    var url = '<s:url value = "/checkcode.jpg"/>?nocache='+Math.random();
         $("#checkcode_id").attr("src",url);
@@ -22,51 +18,41 @@
     </script>
   </head>
   <body>
-    <!--顶部信息栏-->
-    <s:include value="../top.jsp"/>
-    <!--顶部信息栏结束-->
-    <div id="whole_bg">
-      <div id="content">
-        <s:include value="../header.jsp"/>
-        <!--内容-->
-        <div class="wsbs_side">
-          <iframe src="/zxfw/zaixianfuwuqiantaozuo/index.html" width="228" height="760" frameborder="0" scrolling="no"> 
-            <a href="/zxfw/zaixianfuwuqiantaozuo/index.html">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a> 
-          </iframe>
-        </div>
-        <div class="wsbs_main">
-          <div class="current_position"><p><span><strong>当前位置：</strong><a href="/">首页</a>＞<a href="<s:url action='index'/>">在线服务</a></span></p></div>
-          <div class="clearfloat"></div>
-          <h5><s:property value="working.name"/></h5><!--具体办件标题-->
-          <ul class="pro">
+    <div id="container">
+      <s:include value="../top.jsp"/>
+      <div class="clearfloat"></div>
+      <s:include value="../header.jsp"/>
+      <div class="clearfloat"></div>
+      <div class="pos_box">
+        <p class="position"><span>当前位置：</span><a href="/">首页</a>&nbsp;&gt;&gt;&nbsp;<a href="<s:url value='/online/index.html'/>">在线服务</a>&nbsp;&gt;&gt;&nbsp;<s:property value="matter.name"/></p>
+      </div>
+      <div class="out_line">
+        <div class="in_line">
+          <h5><s:property value="working.name"/></h5>
+          <ul class="sub_program">
             <s:if test="working.matter!=null">
             <li>
-              <s:url action="matter" id="url" escapeAmp="false"><s:param name="workingId" value="workingId"/><s:param name="organId" value="organId"/></s:url>
-              <a href="<s:property value="url"/>">办事指南</a>
+              <s:url value="/online/matter/%{organId}_%{workingId}.html" id="matterUrl" escapeAmp="false"/>
+              <a href="<s:property value="matterUrl"/>">办事指南</a>
             </li>
             </s:if>
             <li><a href="http://218.87.91.208:8008/outportal">网上申报</a></li>
             <s:if test="working.matter!=null">
+            <li class="current">网上咨询</li>
             <li>
-              <a class="current">网上咨询</a>
-            </li>
-            <li>
-              <s:url action="advisorSearch" id="annexUrl" escapeAmp="false"><s:param name="workingId" value="workingId"/><s:param name="organId" value="organId"/></s:url>
-              <a href="<s:property value="annexUrl"/>">在线查询</a>
+              <s:url value="/online/advisorsearch/%{organId}_%{workingId}.html" id="advisorsearchUrl" escapeAmp="false"/>
+              <a href="<s:property value="advisorsearchUrl"/>">在线查询</a>
             </li>
             <s:if test="!working.matter.matterAnnexs.isEmpty()">
             <li>
-              <s:url action="matterannex" id="annexUrl" escapeAmp="false"><s:param name="workingId" value="workingId"/><s:param name="organId" value="organId"/></s:url>
+              <s:url value="/online/matterannex/%{organId}_%{workingId}.html" id="annexUrl" escapeAmp="false"/>
               <a href="<s:property value="annexUrl"/>">表格下载</a>
             </li>
             </s:if>
             </s:if>
-          </ul><!--办件的流程-->
+          </ul>
           <div class="clearfloat"></div>
-          <div class="zw_box2">
-            <div class="zx_k">
-              <div class="formFieldError" style="margin-left: 10px;font-size: 13px;"><s:actionerror/></div>
-              <div class="formMessage" style="margin-left: 10px;font-size: 14px;color: #3300ff;"><s:actionmessage/></div>
+            <div class="guide_box">
               <s:form namespace="/online" id="advisor" name="advisor" action="advisorEdit" method="post">
                 <table  border="0" cellspacing="0" cellpadding="0" class="formtable1" align="center">
                 <s:if test="!login">
@@ -89,15 +75,14 @@
                 <s:else>
                   <tr style="display:none;">
                     <td width="90px" height="32px">*用户名：</td>
-                    <td align="left" height="32px"><s:textfield name="username" value="ssss"/></td>
+                    <td align="left" height="32px"><s:textfield name="username"/></td>
                   </tr>
                   <tr style="display:none;">
                     <td width="90px" height="32px">*密码：</td>
-                    <td align="left" height="32px"><s:textfield name="password" value="123456"/></td>
+                    <td align="left" height="32px"><s:textfield name="password"/></td>
                   </tr>
                   <tr>
-                    <td colspan="2" height="32px">
-                                                          欢迎&nbsp;<font color="red"><s:property value="user.name"/></font>&nbsp;用户&nbsp;&nbsp;
+                    <td colspan="2" height="32px">欢迎&nbsp;<font color="red"><s:property value="user.name"/></font>&nbsp;用户&nbsp;&nbsp;
                       <a href="<s:url namespace='/user' action='advisor'/>">[会员中心]</a>&nbsp;&nbsp;
                       <a href="javascript:void(0);" id="logout_id">[退出]</a>
                     </td>
@@ -105,8 +90,8 @@
                 </s:else>
                   <tr>
                     <td width="90px">*标题：</td>
-                    <td class="formFieldError">
-                      <s:textfield id = "title_id" name = "advisor.title"/>
+                    <td align="left" class="formFieldError">
+                      <s:textfield id="title_id" name="advisor.title"/>
                       <s:fielderror ><s:param value="%{'advisor.title'}" /></s:fielderror>
                     </td>
                   </tr>
@@ -132,10 +117,9 @@
               </s:form>
               <div align="center" style="margin-top: 10px"><input type="button" value="提交" class="btn_submit" onclick="document.advisor.submit();"/></div>
             </div>
-          </div>     
         </div>
-        <!--内容结束-->
       </div>
+      <!--内容结束-->
       <!--脚注信息-->
       <div class="clearfloat"></div>
       <s:include value="../footer.jsp"/>

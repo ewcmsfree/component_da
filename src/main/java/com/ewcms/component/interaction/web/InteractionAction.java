@@ -15,6 +15,7 @@ import com.ewcms.component.auth.web.LoginAction;
 import com.ewcms.component.interaction.service.InteractionServiceable;
 import com.ewcms.component.interaction.vo.Interaction;
 import com.ewcms.component.interaction.vo.Organ;
+import com.ewcms.component.util.RegexUtil;
 import com.ewcms.component.util.Struts2Util;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -143,8 +144,8 @@ public class InteractionAction extends LoginAction {
 
         Interaction interaction = new Interaction();
         interaction.setChecked(false);
-        interaction.setContent(content);
-        interaction.setTitle(title);
+        interaction.setContent(RegexUtil.FilterScriptAndStyle(content));
+        interaction.setTitle(RegexUtil.FilterScriptAndStyle(title));
         if (noOrgan) {
             interaction.setOrgan(null);
         } else {
@@ -155,7 +156,7 @@ public class InteractionAction extends LoginAction {
         interaction.setUsername(getUser().getUsername());
         interaction.setName(getUser().getName());
         interaction.setChecked(false);
-        interaction.setTel(tel);
+        interaction.setTel(RegexUtil.FilterScriptAndStyle(tel));
         interactionService.addInteraction(interaction);
         empty();
 

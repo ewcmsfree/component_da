@@ -42,8 +42,8 @@ public class InteractionDAO implements InteractionDAOable {
 	@Override
 	public Integer addInteraction(final Interaction vo) {
 		final String sql = "Insert Into plugin_interaction "
-				+ "(username,title,content,replay,type,state,checked,organ_id,ip,name,organ_name) "
-				+ "Values (?,?,?,?,?,?,?,?,?,?,?)";
+				+ "(username,title,content,replay,type,state,checked,organ_id,ip,name,organ_name,tel) "
+				+ "Values (?,?,?,?,?,?,?,?,?,?,?,?)";
 		
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
@@ -61,7 +61,8 @@ public class InteractionDAO implements InteractionDAOable {
 				ps.setString(9, vo.getIp());
 				ps.setString(10, vo.getName());
 				ps.setString(11, vo.getOrgan().getName());
-
+				ps.setString(12, vo.getTel());
+				
 				return ps;
 			}
 		});
@@ -521,35 +522,17 @@ public class InteractionDAO implements InteractionDAOable {
 
 	@Override
 	public List<Organ> findIteractionBackCount(int row) {
-		String sql = "select organ_name, count(organ_id) as count " +
+		String sql = "select organ_id, organ_name, count(organ_id) as count " +
 				"from plugin_interaction " +
 				"where checked=true and username is not null " +
-				"group by organ_name " +
+				"group by organ_id, organ_name " +
 				"order by count desc Limit ?";
 		
 		return jdbcTemplate.query(sql, new Object[]{row}, new RowMapper<Organ>() {
             @Override
             public Organ mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Organ organ = new Organ();
-                organ.setName(rs.getString("organ_name"));
-                organ.setBackRatio(rs.getInt("count"));
-                return organ;
-            }
-        });
-	}
-
-	@Override
-	public List<Organ> findIteractionNoBackCount(int row) {
-		String sql = "select organ_name, count(organ_id) as count " +
-				"from plugin_interaction " +
-				"where checked=false and username is not null " +
-				"group by organ_name " +
-				"order by count desc Limit ?";
-		
-		return jdbcTemplate.query(sql, new Object[]{row}, new RowMapper<Organ>() {
-            @Override
-            public Organ mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Organ organ = new Organ();
+                organ.setId(rs.getInt("organ_id"));
                 organ.setName(rs.getString("organ_name"));
                 organ.setBackRatio(rs.getInt("count"));
                 return organ;

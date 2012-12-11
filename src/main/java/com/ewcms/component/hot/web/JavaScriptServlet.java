@@ -11,6 +11,8 @@
 package com.ewcms.component.hot.web;
 
 import com.ewcms.component.hot.service.HotService;
+import com.ewcms.component.util.RegexUtil;
+
 import java.io.IOException;
 import java.io.Writer;
 import javax.servlet.ServletContext;
@@ -46,6 +48,7 @@ public class JavaScriptServlet extends HttpServlet {
          initResponseHeader(response, encoding);
 
         String callback = getParameterValue(request, CALLBACK_PARAMETER_NAME);
+        callback = RegexUtil.FilterScriptAndStyle(callback);
         String value;
         if (callback == null) {
             value = "alert('请设置显示浏览次数回调函数');";
@@ -60,7 +63,7 @@ public class JavaScriptServlet extends HttpServlet {
     }
 
     private String getParameterValue(HttpServletRequest request, final String parameter) {
-        return request.getParameter(parameter);
+        return RegexUtil.FilterScriptAndStyle(request.getParameter(parameter));
     }
 
     private void initResponseHeader(final HttpServletResponse response, final String encoding) {

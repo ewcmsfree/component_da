@@ -10,6 +10,8 @@
 package com.ewcms.component.citizen.web.servlate;
 
 import com.ewcms.component.citizen.service.CitizenService;
+import com.ewcms.component.util.RegexUtil;
+
 import java.io.IOException;
 import java.io.Writer;
 import javax.servlet.ServletContext;
@@ -59,7 +61,7 @@ public class JavaScriptServlet extends HttpServlet {
     }
 
     private String getParameterValue(HttpServletRequest request, final String parameter) {
-        return request.getParameter(parameter);
+        return RegexUtil.FilterScriptAndStyle(request.getParameter(parameter));
     }
 
     private void initResponseHeader(final HttpServletResponse response, final String encoding) {

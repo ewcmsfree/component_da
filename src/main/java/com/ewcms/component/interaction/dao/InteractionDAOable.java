@@ -67,5 +67,4 @@ public interface InteractionDAOable {
     public List<Interaction> findInteractionByOrganId(int organId);
     
     public List<Organ> findIteractionBackCount(int row);
-    public List<Organ> findIteractionNoBackCount(int row);
 }

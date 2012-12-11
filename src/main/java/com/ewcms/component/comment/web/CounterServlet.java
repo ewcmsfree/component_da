@@ -11,6 +11,8 @@ package com.ewcms.component.comment.web;
 
 import com.ewcms.component.comment.service.CommentServiceable;
 import com.ewcms.component.comment.vo.CommentCount;
+import com.ewcms.component.util.RegexUtil;
+
 import java.io.IOException;
 import java.io.Writer;
 import javax.servlet.ServletContext;
@@ -57,7 +59,7 @@ public class CounterServlet extends HttpServlet {
     }
 
     protected String getParameterValue(HttpServletRequest request, final String parameter) {
-        return request.getParameter(parameter);
+        return RegexUtil.FilterScriptAndStyle(request.getParameter(parameter));
     }
 
     protected int getArticleId(HttpServletRequest request) {

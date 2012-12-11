@@ -28,7 +28,7 @@ public class IndexAction extends ActionSupport {
 
 	private static final long serialVersionUID = -1880649265523336141L;
 
-	private final static int DEFAULT_ROW = 12;
+	private final static int DEFAULT_ROW = 15;
 
     public enum FindType {
         ALL, REPLAY, NOREPLAY;
@@ -124,9 +124,7 @@ public class IndexAction extends ActionSupport {
     public List<Organ> getBackCount(){
     	return interactionService.findIteractionBackCount(7);
     }
-    public List<Organ> getNoBackCount(){
-    	return interactionService.findIteractionNoBackCount(7);
-    }
+
     public List<Interaction> getHots() {
         return interactionService.findHotInteraction(9);
     }

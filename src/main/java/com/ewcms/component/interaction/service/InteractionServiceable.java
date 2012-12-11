@@ -65,5 +65,4 @@ public interface InteractionServiceable {
     public String mainJSON(Integer type);
     
     public List<Organ> findIteractionBackCount(int row);
-    public List<Organ> findIteractionNoBackCount(int row);
 }

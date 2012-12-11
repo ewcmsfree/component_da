@@ -11,6 +11,8 @@ package com.ewcms.component.counter.web;
 
 import com.ewcms.component.counter.service.CounterServiceable;
 import com.ewcms.component.counter.vo.Counter;
+import com.ewcms.component.util.RegexUtil;
+
 import java.io.IOException;
 import java.io.Writer;
 import javax.servlet.ServletContext;
@@ -58,12 +60,13 @@ public class CounterServlet extends HttpServlet {
 
     private int getArticleId(HttpServletRequest request) {
         String value = getParameterValue(request, HTMLID_PARAMETER_NAME);
+        value = RegexUtil.FilterScriptAndStyle(value);
         return intValue(value);
 
     }
 
     private String getParameterValue(HttpServletRequest request, final String parameter) {
-        return request.getParameter(parameter);
+        return RegexUtil.FilterScriptAndStyle(request.getParameter(parameter));
     }
 
     private int intValue(final String value) {

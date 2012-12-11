@@ -10,6 +10,8 @@
 package com.ewcms.component.online.web.servlate;
 
 import com.ewcms.component.online.service.OnlineService;
+import com.ewcms.component.util.RegexUtil;
+
 import java.io.IOException;
 import java.io.Writer;
 import javax.servlet.ServletContext;
@@ -42,7 +44,7 @@ public class JavaScriptServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String encoding = getParameterValue(request, HEADER_ENCODING);
         encoding = (encoding == null ? DEFAULT_ENCODING : encoding);
-         initResponseHeader(response, encoding);
+        initResponseHeader(response, encoding);
 
         String callback = getParameterValue(request, CALLBACK_PARAMETER_NAME);
         String value;
@@ -59,7 +61,7 @@ public class JavaScriptServlet extends HttpServlet {
     }
 
     private String getParameterValue(HttpServletRequest request, final String parameter) {
-        return request.getParameter(parameter);
+        return RegexUtil.FilterScriptAndStyle(request.getParameter(parameter));
     }
 
     private void initResponseHeader(final HttpServletResponse response, final String encoding) {

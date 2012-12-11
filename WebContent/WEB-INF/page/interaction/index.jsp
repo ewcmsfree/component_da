@@ -176,7 +176,7 @@
                   <table>
                     <s:iterator value="backCount">
                     <tr>
-                      <td class="t1"><a href="<s:url value='/interaction/organ/search/%{id}.html'/>" target="_blank"><s:property value="name"/></a></td>
+                      <td class="t1"><a href="/interaction/organ/search/%{id}.html" target="_blank"><s:property value="name"/></a></td>
                       <td class="t2"><s:property value="backRatio"/></td>
                     </tr>
                     </s:iterator>
@@ -186,7 +186,7 @@
                   <table>
                     <s:iterator value="noBackCount">
                     <tr>
-                      <td class="t1"><a href="<s:url value='/interaction/organ/search/%{id}.html'/>" target="_blank"><s:property value="name"/></a></td>
+                      <td class="t1"><a href="/interaction/organ/search/%{id}.html" target="_blank"><s:property value="name"/></a></td>
                       <td class="t2"><s:property value="backRatio"/></td>
                     </tr>
                     </s:iterator>

@@ -225,9 +225,4 @@ public class InteractionService implements InteractionServiceable {
 	public List<Organ> findIteractionBackCount(int row) {
 		return interactionDAO.findIteractionBackCount(row);
 	}
-
-	@Override
-	public List<Organ> findIteractionNoBackCount(int row) {
-		return interactionDAO.findIteractionNoBackCount(row);
-	}
 }

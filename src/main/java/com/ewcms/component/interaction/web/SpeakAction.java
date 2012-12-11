@@ -14,6 +14,7 @@ import com.ewcms.component.auth.vo.User;
 import com.ewcms.component.auth.web.LoginAction;
 import com.ewcms.component.interaction.service.InteractionServiceable;
 import com.ewcms.component.interaction.vo.Speak;
+import com.ewcms.component.util.RegexUtil;
 import com.ewcms.component.util.StringToNumber;
 import com.ewcms.component.util.Struts2Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,7 +91,7 @@ public class SpeakAction extends LoginAction {
         	
 	        Speak speak = new Speak();
 	        speak.setChecked(false);
-	        speak.setContent(content);
+	        speak.setContent(RegexUtil.FilterScriptAndStyle(content));
 	        speak.setInteractionId(iInteractionId);
 	        speak.setUsername(getUser().getUsername());
 	        speak.setName(getUser().getName());

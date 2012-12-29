@@ -38,6 +38,11 @@
             <message>不能为空，如不清楚提交部门，请选中“不清楚提交部门”选项，我们会帮你转发到相应处理部门。</message>
         </field-validator>
     </field>
+    <field name="tel">
+    	<field-validator type="requiredstring">
+            <message>不能为空！</message>
+        </field-validator>
+    </field>
 </validators>
 
 

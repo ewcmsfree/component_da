@@ -85,9 +85,9 @@
               <div class="mstd">
                 <div class="mstd_tit">民声通道</div>
                 <div class="letter_search">
-                  <form>
-                    <input class="srh_text" name="" type="text" value="信件查询" />
-                    <input class="srh_but" name="" type="button" value="搜索" />
+                  <form action="<s:url value='/interaction/search.html'/>" name="zmhdsearchform" method="post">
+                    <input class="srh_text" name="title" type="text" value="信件查询" size="20" onclick="this.value=''"/>
+                    <input class="srh_but" type="submit" value="搜索"/>
                   </form>
                 </div>
                 <div class="clearfloat"></div>
@@ -176,7 +176,7 @@
                   <table>
                     <s:iterator value="backCount">
                     <tr>
-                      <td class="t1"><a href="/interaction/organ/search/%{id}.html" target="_blank"><s:property value="name"/></a></td>
+                      <td class="t1"><a href="<s:url value='/interaction/organ/search/%{id}.html'/>" target="_blank"><s:property value="name"/></a></td>
                       <td class="t2"><s:property value="backRatio"/></td>
                     </tr>
                     </s:iterator>
@@ -186,7 +186,7 @@
                   <table>
                     <s:iterator value="noBackCount">
                     <tr>
-                      <td class="t1"><a href="/interaction/organ/search/%{id}.html" target="_blank"><s:property value="name"/></a></td>
+                      <td class="t1"><a href="<s:url value='/interaction/organ/search/%{id}.html'/>" target="_blank"><s:property value="name"/></a></td>
                       <td class="t2"><s:property value="backRatio"/></td>
                     </tr>
                     </s:iterator>

@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
         "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
-<!--
-
-    Configuration file for UrlRewriteFilter
-    http://www.tuckey.org/urlrewrite/
-
--->
+<!-- Configuration file for UrlRewriteFilter http://www.tuckey.org/urlrewrite/ -->
 <urlrewrite>
 
+	<outbound-rule encodefirst="true">
+		<name>Strip URL Session ID's</name>
+		<condition name="user-agent">googlebot</condition>
+		<from>^(.*?)(?:\;jsessionid=[^\?#]*)?(\?[^#]*)?(#.*)?$</from>
+		<to>$1$2$3</to>
+	</outbound-rule>
+	
 	<!-- interaction -->
 	<rule>
 		<from>^/interaction/index.html$</from>
 		<to>/interaction/index.do</to>
 	</rule>
-	
+
 	<rule>
 		<from>^/interaction/index/xc/page/([0-9]+)_([0-9]+).html$</from>
 		<to>/interaction/index.do?type=$1&amp;pageNumberXc=$2</to>
@@ -27,7 +29,7 @@
 		<from>^/interaction/index/zx/page/([0-9]+)_([0-9]+).html$</from>
 		<to>/interaction/index.do?type=$1&amp;pageNumberZx=$2</to>
 	</rule>
-	
+
 	<rule>
 		<from>^/interaction/search.html$</from>
 		<to>/interaction/search.do</to>
@@ -36,7 +38,7 @@
 		<from>^/interaction/search/page/([0-9]+)_([0-9]+)_(.*).html$</from>
 		<to>/interaction/search.do?type=$1&amp;pageNumber=$2&amp;title=$3</to>
 	</rule>
-	
+
 	<rule>
 		<from>^/interaction/organ/search/([0-9]+).html$</from>
 		<to>/interaction/organsearch.do?id=$1</to>
@@ -45,7 +47,7 @@
 		<from>^/interaction/organ/search/page/([0-9]+)_([0-9]+).html$</from>
 		<to>/interaction/organsearch.do?id=$1&amp;pageNumber=$2</to>
 	</rule>
-	
+
 	<rule>
 		<from>^/interaction/list/([0-9]+).html$</from>
 		<to>/interaction/list.do?currentTable=$1</to>
@@ -58,12 +60,12 @@
 		<from>^/interaction/detail/([0-9]+).html$</from>
 		<to>/interaction/detail.do?id=$1</to>
 	</rule>
-	
+
 	<rule>
 		<from>^/interaction/searchresult/page/([0-9]+)_([0-9]+)_([0-9]+)_(.*)_(.*)_(.*).html$</from>
 		<to>/interaction/searchresult.do?searchRange=$1&amp;searchChannel=$2&amp;pageNumber=$3&amp;beginDate=$4&amp;endDate=$5&amp;searchKey=$6</to>
 	</rule>
-	
+
 	<!-- online -->
 	<rule>
 		<from>^/online/index.html$</from>

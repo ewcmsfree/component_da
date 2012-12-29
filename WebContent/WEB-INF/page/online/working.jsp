@@ -10,6 +10,10 @@
     <script src="<s:url value='/js/changdiv.js'/>" type="text/javascript"></script>
     <script src="<s:url value='/Scripts/swfobject_modified.js'/>" type="text/javascript"></script>
     <script type="text/javascript">
+      function MM_jumpMenu(targ,selObj,restore){ //v3.0
+        eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+        if (restore) selObj.selectedIndex=0;
+      }
       function jumpPage(obj){
       	var page = obj.options[obj.selectedIndex].text -1 ;
       	window.location = '<s:url value="/online/working/page/%{workingId}_%{parentId}_' + page + '.html" escapeAmp="false"/>';

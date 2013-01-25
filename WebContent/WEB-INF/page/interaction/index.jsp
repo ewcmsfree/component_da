@@ -25,57 +25,9 @@
       <div id="gzcy_container">
         <!--侧边栏-->
         <div class="gzcy_left">
-          <div class="left_btn">
-            <ul>
-              <li><a href="#">县长信箱</a></li>
-              <li><a href="#">县长热线</a></li>
-              <li><a href="#">民声直通车</a></li>
-              <li><a href="#">网上信访</a></li>
-              <li><a href="#">提案议案</a></li>
-            </ul>
-          </div>
-          <div class="zxft_box">
-            <p class="zxft_btn"></p>
-            <ul class="zxft_tab">
-              <li id="subft1" onmouseover="ChangeFoldern(this,'subft','3','current','');" class="current">最新访谈</li>
-              <li id="subft2" onmouseover="ChangeFoldern(this,'subft','3','current','');">访谈预告</li>
-              <li id="subft3" onmouseover="ChangeFoldern(this,'subft','3','current','');"><a href="#">访谈回顾</a></li>
-            </ul>
-            <div class="clearfloat"></div>
-            <!--最新访谈盒子-->
-            <div id="tsubft1" class="ft_subbox">
-              <p><img src="../images/ft_pic.jpg" width="220" height="147" /></p>
-              <p><b>访谈主题：</b>喜迎十八大，志愿我先行</p>
-              <p><b>访谈嘉宾：</b>市委书记：江凌</p>
-              <p><b>访谈时间：</b>2012-12-03  15：00</p>
-              <p style="padding-left:70px;"><a href="#">进入文字实录&gt;&gt;</a></p>
-            </div>
-            <!--最新访谈盒子结束-->
-            <!--访谈预告盒子-->
-            <div id="tsubft2" class="ft_subbox" style="display:none;">
-              <p><img src="../images/ft_pic.jpg" width="220" height="147" /></p>
-              <p><b>访谈主题：</b>喜迎十八大，志愿我先行喜迎十八大，志愿我</p>
-              <p><b>访谈嘉宾：</b>市委书记：江凌</p>
-              <p><b>访谈时间：</b>2012-12-03  15：00</p>
-              <p style="padding-left:70px;"><a href="#">进入直播室&gt;&gt;</a></p>
-            </div>
-            <!--访谈预告盒子结束-->
-            <!--访谈回顾盒子-->
-            <div id="tsubft3" class="ft_subbox" style="display:none;">
-              <ul>
-                <li><a href="#">叶心林等县领导节走访慰</a></li>
-                <li><a href="#">县政协主席高茂木视小区物</a></li>
-                <li><a href="#">我县召开2012年四次全体</a></li>
-                <li><a href="#">县一小师生共庆教师节</a></li>
-                <li><a href="#">县检察院干警机关法律文书</a></li>
-                <li><a href="#">叶心林等县领导节走访慰</a></li>
-                <li><a href="#">县检察院干警机关法律文书</a></li>
-                <li><a href="#">叶心林等县领导节走访慰</a></li>
-              </ul>
-            </div>
-            <!--访谈回顾盒子结束-->
-            <!--访谈预告盒子-->
-          </div>
+        	<iframe src="/qiantaomoban/interaction/qian_left/index.html" width="100%" height="580" frameborder="0" scrolling="no"> 
+            	<a href="/qiantaomoban/interaction/qian_left/index.html">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a> 
+          	</iframe>
         </div>
         <!--侧边栏结束-->
         <!--主栏-->
@@ -94,7 +46,7 @@
                 <div class="letter_tag">
                   <ul>
                     <li><a href="<s:url action='interaction'/>">我要写信</a></li>
-                    <li><a href="#">使用说明</a></li>
+                    <li><a href="/gongzhongcanyu/shiyongshuoming">使用说明</a></li>
                   </ul>
                 </div>
                 <div class="clearfloat"></div>
@@ -192,38 +144,12 @@
                     </s:iterator>
                   </table>
                 </div>
-                <div class="right_tab" style="margin-top:10px;">
-                  <ul>
-                    <li id="fazhan1" onmouseover="ChangeFoldern(this,'fazhan','2','current','');" class="current">网上调查</li>
-                    <li id="fazhan2" onmouseover="ChangeFoldern(this,'fazhan','2','current','');">民意征集</li>
-                  </ul>
-                </div>
                 <div class="clearfloat"></div>
-                <!--网上调查列表-->
-                <ul id="tfazhan1" class="lis02">
-                  <li><a href="#">叶心林等县领导节走访慰</a></li>
-                  <li><a href="#">县政协主席高茂木视小区物</a></li>
-                  <li><a href="#">我县召开2012年四次全体</a></li>
-                  <li><a href="#">县一小师生共庆教师节</a></li>
-                  <li><a href="#">县检察院干警机关法律文书</a></li>
-                  <li><a href="#">叶心林等县领导节走访慰</a></li>
-                  <li><a href="#">县检察院干警机关法律文书</a></li>
-                  <li><a href="#">叶心林等县领导节走访慰</a></li>
-                </ul>
-                <!--网上调查列表结束-->
-                <!--民意征集列表-->
-                <ul id="tfazhan2" class="lis02" style="display:none;">
-                  <li><a href="#">县检察院干警机关法律文书</a></li>
-                  <li><a href="#">叶心林等县领导节走访慰</a></li>
-                  <li><a href="#">县检察院干警机关法律文书</a></li>
-                  <li><a href="#">叶心林等县领导节走访慰</a></li>
-                  <li><a href="#">叶心林等县领导节走访慰</a></li>
-                  <li><a href="#">县政协主席高茂木视小区物</a></li>
-                  <li><a href="#">我县召开2012年四次全体</a></li>
-                  <li><a href="#">县一小师生共庆教师节</a></li>
-                </ul>
-                <!--民意征集列表结束-->
-                <div class="clearfloat"></div>
+                <!--网上调查列表/民意征集列表-->
+                <iframe src="/qiantaomoban/interaction/qian_wsdc/index.html" width="100%" height="100%" frameborder="0" scrolling="no"> 
+            		<a href="/qiantaomoban/interaction/qian_wsdc/index.html">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a> 
+          		</iframe>
+                <!--网上调查列表/民意征集列表结束-->
               </div>
               <div class="clearfloat"></div>
             </div>

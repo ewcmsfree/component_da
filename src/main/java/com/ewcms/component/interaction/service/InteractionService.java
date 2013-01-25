@@ -199,17 +199,19 @@ public class InteractionService implements InteractionServiceable {
     private String replayRatioJSON(Integer type) {
         StringBuilder builder = new StringBuilder();
         builder.append("[");
-        List<Organ> list = interactionDAO.findInteractionBackOrder(4, true);
+        List<Organ> list = interactionDAO.findInteractionBackOrder(9, true);
         for(Organ organ : list){
             builder.append("{");
+            builder.append("\"id\":\"").append(organ.getId()).append("\",");
             builder.append("\"organ\":\"").append(organ.getName()).append("\",");
             builder.append("\"ratio\":").append(organ.getBackRatio()).append(",");
             builder.append("\"type\":").append(0);
             builder.append("},");
         }
-        list = interactionDAO.findInteractionBackOrder(4, false);
+        list = interactionDAO.findInteractionBackOrder(9, false);
         for(Organ organ : list){
             builder.append("{");
+            builder.append("\"id\":\"").append(organ.getId()).append("\",");
             builder.append("\"organ\":\"").append(organ.getName()).append("\",");
             builder.append("\"ratio\":").append(organ.getNoBackRatio()).append(",");
             builder.append("\"type\":").append(1);

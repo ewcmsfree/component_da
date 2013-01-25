@@ -4,13 +4,6 @@
 <!-- Configuration file for UrlRewriteFilter http://www.tuckey.org/urlrewrite/ -->
 <urlrewrite>
 
-	<outbound-rule encodefirst="true">
-		<name>Strip URL Session ID's</name>
-		<condition name="user-agent">googlebot</condition>
-		<from>^(.*?)(?:\;jsessionid=[^\?#]*)?(\?[^#]*)?(#.*)?$</from>
-		<to>$1$2$3</to>
-	</outbound-rule>
-	
 	<!-- interaction -->
 	<rule>
 		<from>^/interaction/index.html$</from>
@@ -76,7 +69,7 @@
 		<to>/online/working.do?workingId=$1&amp;parentId=$2</to>
 	</rule>
 	<rule>
-		<from>^/online/organ$</from>
+		<from>^/online/organ.html$</from>
 		<to>/online/organ.do</to>
 	</rule>
 	<rule>
@@ -127,4 +120,9 @@
 		<from>^/online/search/page/([0-9]+)_(.*).html$</from>
 		<to>/online/search.do?pageNumber=$1&amp;title=$2</to>
 	</rule>
+	
+	<outbound-rule encodefirst="true">
+		<from>^(.*?)(?:\;jsessionid=[^\?#]*)?(\?[^#]*)?(#.*)?$</from>
+		<to>$1$2$3</to>
+	</outbound-rule>
 </urlrewrite>

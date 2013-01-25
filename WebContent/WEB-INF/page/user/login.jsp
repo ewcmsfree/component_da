@@ -63,13 +63,13 @@
                             <tr>
                                 <td height="50px" align="center" valign="middle" colspan="2" style="padding: 0px 30px;">
                                     <p style="border-bottom: 1px solid #33cc00;padding:20px 0; ">
-                                        <span class="style41" style="font-size: 20px;">登录</span><span class="style9" style="font-size: 28px;font-weight: bold;">中国瑞昌网</span>
+                                        <span class="style41" style="font-size: 20px;">登录</span><span class="style9" style="font-size: 28px;font-weight: bold;">中国德安网</span>
                                     </p>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="120px" style="padding-left: 30px;padding-top: 60px;" valign="top" >
-                                    <span class="style41" style="font-size: 15px;">>中国·德安网登录</span>
+                                    <span class="style41" style="font-size: 15px;">中国·德安网登录</span>
                                 </td>
                                 <td>
                                     <div class="main">

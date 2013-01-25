@@ -84,7 +84,7 @@ public class MatterDAO {
                 MatterAnnex annex = new MatterAnnex();
 
                 annex.setId(rs.getInt("id"));
-                annex.setName(rs.getString("legend"));
+                annex.setLegend(rs.getString("legend"));
                 annex.setUrl(rs.getString("url"));
                 
                 return annex;

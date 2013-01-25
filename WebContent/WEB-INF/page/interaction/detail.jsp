@@ -6,50 +6,49 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>中国·德安欢迎您！</title>
-    <link href="../css/ruichang.css" rel="stylesheet" type="text/css" />
-    <script src="../Scripts/swfobject_modified.js" type="text/javascript"></script>
-    <script src="../js/changdiv.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      function MM_jumpMenu(targ,selObj,restore){ //v3.0
-        eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-        if (restore) selObj.selectedIndex=0;
-      }
-    </script>
+    <link href="<s:url value='/css/dean.css'/>" rel="stylesheet" type="text/css" />
+    <script src="<s:url value='/js/changdiv.js'/>" type="text/javascript"></script>
+    <script src="<s:url value='/Scripts/swfobject_modified.js'/>" type="text/javascript"></script>
+    <style type="text/css">
+      <!--
+      .label{ text-align:center; height:35px; line-height:35px; }
+      .label span{ margin:0 10px; }
+      .label span b{ color:#C00; }
+      .box07{ width:800px; margin:0 auto; border:dotted 1px #999; padding:15px; font-size:14px; line-height:2; }
+      .box07 b{ color:#03F; }
+      -->
+    </style>
   </head>
   <body>
-    <!--顶部信息栏-->
-    <s:include value="../top.jsp"/>
-    <!--顶部信息栏结束-->
-    <div id="whole_bg">
-      <div id="content">
+    <div id="container">
+      <s:include value="../top.jsp"/>
+      <div class="clearfloat"></div>
       <s:include value="../header.jsp"/>
-      <!--内容-->
-        <div class="current_position"><p><span><strong>当前位置：</strong><a href="/">首页</a>＞<a href="<s:url action='index'/>">民声通道</a>＞在线咨询</span></p></div>
-        <div id="letter_detail">
-          <div class="title"><s:property value="interaction.title"/></div>
-          <div class="source">
-            <span><strong>编号：</strong><s:property value="interaction.formatId"/></span>
-            <span><strong>咨询人：</strong><s:property value="interaction.name"/></span>
-            <span><strong>咨询类型：</strong><s:if test = "interaction.type==1">在线咨询</s:if><s:if test = "interaction.type==2">投诉监督</s:if><s:if test = "interaction.type==3">建言献策</s:if></span>
-            <span><strong>提交时间：</strong><s:date format="yyyy-MM-dd" name="interaction.date"/></span><span>
-            <strong>受理单位：</strong><s:property value="interaction.organ.name"/></span>
+      <div class="clearfloat"></div>
+      <!--当前位置层-->
+      <div class="pos_box">
+        <p class="position"><span>当前位置：</span><a href="/">首页</a>&nbsp;&gt;&gt;&nbsp;<a href="<s:url value='/interaction/index.html'/>">公众参与</a>&nbsp;&gt;&gt;&nbsp;在线咨询</p>
+      </div>
+      <!--内容层-->
+      <div class="out_line">
+        <div class="in_line">
+          <h5><s:property value="interaction.title"/></h5> 
+          <div class="label">
+            <span><b>编号：</b><s:property value="interaction.formatId"/></span>
+            <span><b>咨询人：</b><s:property value="interaction.name"/></span>
+            <span><b>信件类型：</b><s:if test = "interaction.type==1">在线咨询</s:if><s:if test = "interaction.type==2">投诉监督</s:if><s:if test = "interaction.type==3">建言献策</s:if></span>
+            <span><b>提交时间：</b><s:date format="yyyy-MM-dd" name="interaction.date"/></span>
+            <span><b>受理单位：</b><s:property value="interaction.organ.name"/></span>
           </div>
-          <div class="text_detail">
-          <strong>信件内容：</strong><s:property value="interaction.content" escape="false"/>
-          </div>
-          <div class="text_detail">
-            <strong>受理状态：</strong>
-            <s:if test="interaction.state.ordinal() == 1">已回复</s:if>
-            <s:else>办理中</s:else>
-          </div>
-          <div class="text_detail">
-            <strong>回复单位：</strong><s:property value="interaction.organ.name"/><br />
-            <strong>回复时间：</strong><s:date format="yyyy-MM-dd" name="interaction.replayDate"/>
-            <s:if test="interaction.state.ordinal()==1"><div class="text_detail"><s:property value="interaction.replay" escape="false"/></div></s:if>
+          <div class="box07"><b>信件内容：</b><s:property value="interaction.content" escape="false"/></div>
+          <div class="box07"><b>受理状态：</b><s:if test="interaction.state.ordinal() == 1">已回复</s:if><s:else>办理中</s:else></div>
+          <div class="box07"><b>受理单位：</b><s:property value="interaction.organ.name"/></div>
+          <div class="box07"><b>回复时间：</b><s:date format="yyyy-MM-dd" name="interaction.replayDate"/>
+            <s:if test="interaction.state.ordinal()==1"><div class="box07"><s:property value="interaction.replay" escape="false"/></div></s:if>
           </div>
         </div>
       </div>
-      <!--内容结束-->
+      <!--内容层结束-->
       <!--脚注信息-->
       <div class="clearfloat"></div>
       <s:include value="../footer.jsp"/>

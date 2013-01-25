@@ -24,7 +24,9 @@ public class MatterAnnex implements Serializable {
 
 	private Integer id;
     private String url;
-    private String name;
+    private String legend;
+    private Organ organ;
+    private Matter matter;
 
     public Integer getId() {
         return id;
@@ -42,15 +44,31 @@ public class MatterAnnex implements Serializable {
         this.url = url;
     }
 
-    public String getName() {
-        return name;
+    public String getLegend() {
+		return legend;
+	}
+
+	public void setLegend(String legend) {
+		this.legend = legend;
+	}
+
+    public Organ getOrgan() {
+        return organ;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setOrgan(Organ organ) {
+        this.organ = organ;
     }
 
-    @Override
+	public Matter getMatter() {
+		return matter;
+	}
+
+	public void setMatter(Matter matter) {
+		this.matter = matter;
+	}
+
+	@Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;

@@ -9,6 +9,7 @@
  */
 package com.ewcms.component.online.dao;
 
+import com.ewcms.component.online.vo.MatterAnnex;
 import com.ewcms.component.online.vo.Organ;
 import com.ewcms.component.online.vo.Article;
 import com.ewcms.component.online.vo.Working;
@@ -222,9 +223,11 @@ public class WorkingDAO {
                 + "From plugin_workingbody t1 "
                 + "LEFT JOIN plugin_workingbody_organ t2 ON  t1.id = t2.workingbody_id "
                 + "LEFT JOIN site_organ t3 ON  t2.organ_id = t3.id "
-                + "Where t1.parent_id In "
-                + "(Select id From plugin_workingbody Where parent_id In (Select id From plugin_workingbody Where parent_id = (Select id From plugin_workingbody Where parent_id is null))) "
-                + "And t1.name like ? "
+                + "Where " 
+//                + "t1.parent_id In "
+//                + "(Select id From plugin_workingbody Where parent_id In (Select id From plugin_workingbody Where parent_id = (Select id From plugin_workingbody Where parent_id is null))) "
+//                + "And " 
+                + "t1.name like ? "
                 + "Order By t1.id Asc";
 
         return jdbcTemplate.query(sql, new Object[]{"%" + name + "%"}, new RowMapper<Working>() {
@@ -243,6 +246,31 @@ public class WorkingDAO {
                 }
                 working.setChildren(getChildren(working.getId()));
                 return working;
+            }
+        });
+    }
+    
+    public List<MatterAnnex> findByAnnex(String name){
+    	String sql = "Select t1.id As t1_id,t1.legend As t1_legend,t1.url As t1_url, t1.matter_id As t1_matter_id "
+                + "From plugin_matter_annex t1 "
+                + "Where t1.legend like ? "
+                + "Order By t1.id Asc";
+
+        return jdbcTemplate.query(sql, new Object[]{"%" + name + "%"}, new RowMapper<MatterAnnex>() {
+
+            @Override
+            public MatterAnnex mapRow(ResultSet rs, int rowNum) throws SQLException {
+            	MatterAnnex matterAnnex = new MatterAnnex();
+                matterAnnex.setId(rs.getInt("t1_id"));
+                matterAnnex.setLegend(rs.getString("t1_legend"));
+                matterAnnex.setUrl(rs.getString("t1_url"));
+                Integer matterId = rs.getInt("t1_matter_id");
+                if (matterId == null) {
+                    matterAnnex.setMatter(null);
+                } else {
+                    matterAnnex.setMatter(matterDAO.get(matterId));
+                }
+                return matterAnnex;
             }
         });
     }

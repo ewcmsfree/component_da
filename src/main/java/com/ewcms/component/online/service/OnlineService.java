@@ -17,6 +17,7 @@ import com.ewcms.component.online.vo.Advisor;
 import com.ewcms.component.online.vo.Article;
 import com.ewcms.component.online.vo.Citizen;
 import com.ewcms.component.online.vo.Matter;
+import com.ewcms.component.online.vo.MatterAnnex;
 import com.ewcms.component.online.vo.Organ;
 import com.ewcms.component.online.vo.Working;
 import java.util.List;
@@ -117,6 +118,10 @@ public class OnlineService {
 
     public List<Working> findWorkingByName(String name) {
         return workingDAO.findByName(name);
+    }
+    
+    public List<MatterAnnex> findMatterAnnexByName(String name){
+    	return workingDAO.findByAnnex(name);
     }
 
     public List<Organ> findOrganForWorking() {

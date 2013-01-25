@@ -33,7 +33,7 @@
 
     </head>
     <body>
-        <div style="height: 35px">;</div>
+        <div style="height: 35px"></div>
         <div align="center" id="whole_bg">
             <div style="width:1008px;" class="cheng_line" align="center" style="padding: 0;">
                 <table width="1008" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
@@ -43,7 +43,7 @@
                                 <table width="100%"  border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td>
-　　                                         <span class="red_bt title">中国·德安网—</span><span class="style3 title-sub">会员中心</span>
+　　                                         					<span style="font-size:25px;margin:10px 0;color:#CC0000;font-weight: bold;">中国·德安网—</span><span class="style3 title-sub">会员中心</span>
                                         </td>
                                         <td width="150" class="hui" align="left">
                                             你好：<s:property value="user.name"/>

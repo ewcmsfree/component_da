@@ -11,6 +11,7 @@ package com.ewcms.component.online.web;
 
 import com.ewcms.component.online.service.OnlineService;
 import com.ewcms.component.online.vo.Citizen;
+import com.ewcms.component.online.vo.MatterAnnex;
 import com.ewcms.component.online.vo.Working;
 import com.ewcms.component.util.StringToNumber;
 import com.ewcms.component.vo.Page;
@@ -30,13 +31,19 @@ public class SearchAction extends PageAction {
 
 	private static final int DEFAULT_ROW = 10;
     private List<Working> workings = new ArrayList<Working>();
+    private List<MatterAnnex> annexs = new ArrayList<MatterAnnex>();
     private String key = "" ;
+    private Integer selectId = 1;
     
     @Autowired
     private OnlineService service;
 
     public List<Working> getWorkings() {
         return workings;
+    }
+    
+    public List<MatterAnnex> getAnnexs(){
+    	return annexs;
     }
 
     public String getKey() {
@@ -55,22 +62,45 @@ public class SearchAction extends PageAction {
         return service.getCitizenAll();
     }
 
-    @SuppressWarnings("unchecked")
+    public Integer getSelectId() {
+		return selectId;
+	}
+
+	public void setSelectId(Integer selectId) {
+		this.selectId = selectId;
+	}
+
+	@SuppressWarnings("unchecked")
 	@Override
     public String execute() {
         row = DEFAULT_ROW;
-        List<Working> workingAll;
-        if(key == null || key.trim().length()==0){
-            workingAll = new ArrayList<Working>();
+        if (getSelectId() == 1){
+	        List<Working> workingAll;
+	        if(key == null || key.trim().length()==0){
+	            workingAll = new ArrayList<Working>();
+	        }else{
+	        	workingAll = service.findWorkingByName(key);
+	        }
+	        Integer iPageNumber = 0;
+	        try{
+	        	iPageNumber = StringToNumber.ToInteger(pageNumber);
+	        }catch(Exception e){}
+	        page = new Page.Builder(workingAll.size(), iPageNumber + 1).setPageSize(row).build();
+	        workings = pageList(workingAll, page);
         }else{
-            workingAll = service.findWorkingByName(key);
+        	List<MatterAnnex> annexAll;
+        	if(key == null || key.trim().length()==0){
+        		annexAll = new ArrayList<MatterAnnex>();
+	        }else{
+	        	annexAll = service.findMatterAnnexByName(key);
+	        }
+	        Integer iPageNumber = 0;
+	        try{
+	        	iPageNumber = StringToNumber.ToInteger(pageNumber);
+	        }catch(Exception e){}
+	        page = new Page.Builder(annexAll.size(), iPageNumber + 1).setPageSize(row).build();
+	        annexs = pageList(annexAll, page);
         }
-        Integer iPageNumber = 0;
-        try{
-        	iPageNumber = StringToNumber.ToInteger(pageNumber);
-        }catch(Exception e){}
-        page = new Page.Builder(workingAll.size(), iPageNumber + 1).setPageSize(row).build();
-        workings = pageList(workingAll, page);
         
         return SUCCESS;
     }

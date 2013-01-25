@@ -439,3 +439,8 @@ h5{ text-align:center; color:#C00; border-bottom:#999 1px dotted; margin-bottom:
 .tit05 span{ font-weight:normal; padding-left:380px; }
 .tit05 span a{ color:#000; }
 .ftzy{ font-size:14px;  padding:10px; color:#000; }
+.label{ text-align:center; height:35px; line-height:35px; }
+.label span{ margin:0 10px; }
+.label span b{ color:#C00; }
+.box07{ width:800px; margin:0 auto; border:dotted 1px #999; padding:15px; font-size:14px; line-height:2; }
+.box07 b{ color:#03F; }

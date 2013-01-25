@@ -26,7 +26,7 @@
       -->
       input,textarea,select,td,button { margin: 0; font-size: 12px; font-family: Tahoma, SimSun, sans-serif;}
       .organ_width {width:250px;}
-      .organ_top {border: 1px #a9c9e2 solid;background: #FFFFFF;position:absolute;display: none;height:200px;overflow: auto;}
+      .organ_top {border: 1px #a9c9e2 solid;background: #FFFFFF;position:absolute;display: none; height:200px;overflow: auto;}
       .formtable1{width:100%;}
       .formtable1 td{border-bottom:1px solid #eeeeee;text-align:left;padding:3px 1px 6px 20px;}
       .formMessage {white-space: nowrap;vertical-align: middle;}
@@ -145,13 +145,6 @@
 		        </div>
 		      </s:if>
 		      <s:else>
-		        <div>*用&nbsp;户&nbsp;名：
-		          <s:property value="username"/>
-		        </div>
-		        <br/>
-		        <div>*密&nbsp;&nbsp;&nbsp;&nbsp;码：
-		          <s:property value="password"/>
-		        </div>
 		        <div>欢迎
 		          &nbsp;<font color="red"><s:property value="user.name"/></font>
 		          &nbsp;用户&nbsp;&nbsp;<a href="<s:url namespace='/user' action='interaction'/>">[会员中心]</a>&nbsp;
@@ -178,13 +171,15 @@
 	            <input type="button" id="organ_button_id" value="选择" class="button1"/>&nbsp;&nbsp;&nbsp;&nbsp;
 	            <s:checkbox id="no_organ_id" name="noOrgan"/>我不清楚部门
 	            <br/>
+	            <div style="padding-left:70px;">
 		        <div id="organ_top_id" class="organ_width organ_top">
 		          <div id="organ_tree"></div>
+		        </div>
 		        </div>
 		        <span style="color:red"><s:fielderror><s:param value="%{'organId'}"/></s:fielderror></span>
 		      </div>
 		      <br/>
-		      <div>联系电话：
+		      <div>*联系电话：
 		        <s:textfield id="tel" name="tel" maxLength="15" cssClass="le_tit"/>
 		        <span style="color:red"><s:fielderror ><s:param value="%{'tel'}"/></s:fielderror></span>
 		      </div>

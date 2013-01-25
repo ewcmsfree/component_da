@@ -123,7 +123,7 @@
 		<servlet-name>rssServlet</servlet-name>
 		<url-pattern>/rss</url-pattern>
 	</servlet-mapping>
-	<!-- 
+	
 	<error-page>
 		<error-code>404</error-code>
 		<location>/error.html</location>
@@ -132,5 +132,4 @@
 		<error-code>500</error-code>
 		<location>/error.html</location>
 	</error-page>
-	 -->
 </web-app>

@@ -14,10 +14,6 @@
         eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
         if (restore) selObj.selectedIndex=0;
       }
-      function jumpPage(obj){
-          var page = obj.options[obj.selectedIndex].text -1 ;
-          window.location = '<s:url value="/online/advisorsearch/page/%{matterId}_%{organId}_' + page + '_%{title}" id="pageUrl" escapeAmp="false"/>';
-      }
     </script>
   </head>
   <body>
@@ -103,44 +99,27 @@
               </s:iterator>
             </table>
             <br/>
-            <p class="page_num">
-              <table width="100%"  border="0" cellspacing="0" cellpadding="0">
-               <tr>
-                 <td height="30" bgcolor="#F2F2F2" class="li_line"><div align="center" class="hui">共<s:property value="page.pageCount"/>页&nbsp;当前为第<s:property value="page.page"/>页&nbsp;
-                 <s:if test="page.pagePrev == -1">上一页</s:if>
-                 <s:else>
-                 <s:url value="/online/advisorsearch/page/%{matterId}_%{organId}_%{page.pagePrev-1}_%{title}" id="pageUrl" escapeAmp="false"/>
-                 <a href="<s:property value="pageUrl"/>">上一页</a>
-                 </s:else>
-                 <s:iterator value="page.pageList">
-                 <s:if test = "page.page == top">
-                 <strong><s:property value="top"/></strong>
-                 </s:if>
-                 <s:else>
-                 <s:url value="/online/advisorsearch/page/%{matterId}_%{organId}_%{top-1}_%{title}" id="pageUrl" escapeAmp="false"/>
-                 <a href="<s:property value="pageUrl"/>"><s:property value="top"/></a>
-                 </s:else>&nbsp;
-                 </s:iterator>
-                 <s:if test="page.pageNext == -1">下一页</s:if>
-                 <s:else>
-                 <s:url value="/online/advisorsearch/page/%{matterId}_%{organId}_%{page.pageNext-1}_%{title}" id="pageUrl" escapeAmp="false"/>
-                 <a href="<s:property value="pageUrl"/>">下一页</a>
-                 </s:else>&nbsp;转到
-                 <select name="select" class="hui" onchange="jumpPage(this)">
-                 <s:iterator value="page.pageListAll">
-                 <s:if test = "page.page == top">
-                   <option selected="selected"><s:property value="top"/></option>
-                 </s:if>
-                 <s:else>
-                   <option><s:property value="top"/></option>
-                 </s:else>
-                 </s:iterator>
-                 </select>页
-                 </div>
-               </td>
-             </tr>
-           </table>
-         </p>
+            <div class="page_num">
+              <span>共<s:property value="page.pageCount"/>页</span><span>第<s:property value="page.page"/>页</span>
+              <s:if test="page.pagePrev == -1"><span>上一页</span></s:if>
+              <s:else>
+              <s:url value="/online/advisorsearch/page/%{matterId}_%{organId}_%{page.pagePrev-1}_%{title}" id="pageUrl" escapeAmp="false"/>
+              <a href="<s:property value="pageUrl"/>">上一页</a>
+              </s:else>
+              <s:iterator value="page.pageList">
+              <s:if test = "page.page == top"><span class="act"><s:property value="top"/></span></s:if>
+              <s:else>
+              <s:url value="/online/advisorsearch/page/%{matterId}_%{organId}_%{top-1}_%{title}" id="pageUrl" escapeAmp="false"/>
+              <a href="<s:property value="pageUrl"/>"><s:property value="top"/></a>
+              </s:else>
+              </s:iterator>
+              <s:if test="page.pageNext == -1"><span>下一页</span></s:if>
+              <s:else>
+              <s:url value="/online/advisorsearch/page/%{matterId}_%{organId}_%{page.pageNext-1}_%{title}" id="pageUrl" escapeAmp="false"/>
+              <a href="<s:property value="pageUrl"/>">下一页</a>
+              </s:else>
+            </div>
+		    <div class="clearfloat"></div>
          </div>   
         </div>
       </div>

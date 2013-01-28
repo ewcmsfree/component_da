@@ -136,12 +136,12 @@
                     </tr>
                     <tr>
                         <td><div align="center" class="style15">
-                                <div align="center" class="hui">承办：德安县人民政府信息化工作办公室　技术支持：德安县人民政府信息化工作办公室　电话：0792-4224685 </div>
+                                <div align="center" class="hui">承办：德安县人民政府信息化工作办公室　技术支持：德安县人民政府信息化工作办公室　电话：0792-4331718 </div>
                             </div></td>
                     </tr>
                     <tr>
                         <td><div align="center" class="hui">
-                                <div align="center" class="hui">Copyright 2010 dean.gov.cn All Rights </div>
+                                <div align="center" class="hui">Copyright 2013 dean.gov.cn All Rights </div>
                             </div></td>
                     </tr>
                 </table>

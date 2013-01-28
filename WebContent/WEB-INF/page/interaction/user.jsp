@@ -175,56 +175,27 @@
                                         </table>
                                         <div class="" style="height:1px;"></div><br/>
                                     </s:iterator>
-                                    <table width="95%"  border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td height="30" bgcolor="#F2F2F2"><div align="center" class="hui">
-                                                    <div align="center" class="hui">
-                                                        共<s:property value="page.pageCount"/>页&nbsp;当前为第<s:property value="page.page"/>页&nbsp;
-                                                        <s:if test="page.pagePrev == -1">
-                                                            上一页
-                                                        </s:if>
-                                                        <s:else>
-                                                            <s:url action="interaction" id="pageUrl" escapeAmp="false">
-                                                                <s:param name="pageNumber" value="%{page.pagePrev-1}"/>
-                                                            </s:url>
-                                                            <a href="<s:property value="pageUrl"/>">上一页</a>
-                                                        </s:else>
-                                                        <s:iterator value="page.pageList">
-                                                            <s:if test = "page.page == top">
-                                                                <strong><s:property value="top"/></strong>
-                                                            </s:if>
-                                                            <s:else>
-                                                                <s:url action="interaction" id="pageUrl" escapeAmp="false">
-                                                                    <s:param name="pageNumber" value="%{top-1}"/>
-                                                                </s:url>
-                                                                <a href="<s:property value="pageUrl"/>"><s:property value="top"/></a>
-                                                            </s:else>&nbsp;
-                                                        </s:iterator>
-                                                        <s:if test="page.pageNext == -1">
-                                                            下一页
-                                                        </s:if>
-                                                        <s:else>
-                                                            <s:url action="interaction" id="pageUrl" escapeAmp="false">
-                                                                <s:param name="pageNumber" value="%{page.pageNext-1}"/>
-                                                            </s:url>
-                                                            <a href="<s:property value="pageUrl"/>">下一页</a>&nbsp;转到
-                                                        </s:else>
-                                                        <select name="select" class="hui" onchange="jumpPage(this)">
-                                                            <s:iterator value="page.pageListAll">
-                                                                <s:if test = "page.page == top">
-                                                                    <option selected="selected"><s:property value="top"/></option>
-                                                                </s:if>
-                                                                <s:else>
-                                                                    <option><s:property value="top"/></option>
-                                                                </s:else>
-                                                            </s:iterator>
-                                                        </select>页
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <p>&nbsp;</p>
+						          <div class="page_num">
+						            <span>共<s:property value="page.pageCount"/>页</span><span>第<s:property value="page.page"/>页</span>
+						            <s:if test="page.pagePrev == -1"><span>上一页</span></s:if>
+						            <s:else>
+						            <s:url action="interaction" id="pageUrl" escapeAmp="false"><s:param name="pageNumber" value="%{page.pagePrev-1}"/></s:url>
+						            <a href="<s:property value="pageUrl"/>">上一页</a>
+						            </s:else>
+						            <s:iterator value="page.pageList">
+						            <s:if test = "page.page == top"><span class="act"><s:property value="top"/></span></s:if>
+						            <s:else>
+						            <s:url action="interaction" id="pageUrl" escapeAmp="false"><s:param name="pageNumber" value="%{top-1}"/></s:url>
+						            <a href="<s:property value="pageUrl"/>"><s:property value="top"/></a>
+						            </s:else>
+						            </s:iterator>
+						            <s:if test="page.pageNext == -1"><span>下一页</span></s:if>
+						            <s:else>
+						            <s:url action="interaction" id="pageUrl" escapeAmp="false"><s:param name="pageNumber" value="%{page.pageNext-1}"/></s:url>
+						            <a href="<s:property value="pageUrl"/>">下一页</a>
+						            </s:else>
+						          </div>
+								  <div class="clearfloat"></div>
                                 </div>
                             </s:else>
                             <div align="left" style="margin: 20px 0px 8px 20px" class="separate"><span class="hui style9" style="font-size:13px;">我要写信:</span></div>
@@ -237,16 +208,16 @@
             
                 <table width="100%"  border="0" class="hui">
                     <tr>
-                        <td><div align="center" class="hui">主办：中共瑞昌市人民政府<strong>　</strong></div></td>
+                        <td><div align="center" class="hui">主办：中共德安县人民政府<strong>　</strong></div></td>
                     </tr>
                     <tr>
                         <td><div align="center" class="style15">
-                                <div align="center" class="hui">承办：瑞昌市人民政府信息化工作办公室　技术支持：瑞昌市人民政府信息化工作办公室　电话：0792-4224685 </div>
+                                <div align="center" class="hui">承办：德安县人民政府信息化工作办公室　技术支持：德安县人民政府信息化工作办公室　电话：0792-4331718 </div>
                             </div></td>
                     </tr>
                     <tr>
                         <td><div align="center" class="hui">
-                                <div align="center" class="hui">Copyright 2010 ruichang.gov.cn All Rights </div>
+                                <div align="center" class="hui">Copyright 2013 dean.gov.cn All Rights </div>
                             </div></td>
                     </tr>
                 </table>

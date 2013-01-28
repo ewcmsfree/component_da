@@ -224,14 +224,13 @@ public class WorkingDAO {
                 + "LEFT JOIN plugin_workingbody_organ t2 ON  t1.id = t2.workingbody_id "
                 + "LEFT JOIN site_organ t3 ON  t2.organ_id = t3.id "
                 + "Where " 
-//                + "t1.parent_id In "
-//                + "(Select id From plugin_workingbody Where parent_id In (Select id From plugin_workingbody Where parent_id = (Select id From plugin_workingbody Where parent_id is null))) "
-//                + "And " 
+                + "t1.parent_id In "
+                + "(Select id From plugin_workingbody Where parent_id In (Select id From plugin_workingbody Where parent_id = (Select id From plugin_workingbody Where parent_id is null))) "
+                + "And " 
                 + "t1.name like ? "
                 + "Order By t1.id Asc";
 
         return jdbcTemplate.query(sql, new Object[]{"%" + name + "%"}, new RowMapper<Working>() {
-
             @Override
             public Working mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Working working = new Working();
@@ -253,7 +252,7 @@ public class WorkingDAO {
     public List<MatterAnnex> findByAnnex(String name){
     	String sql = "Select t1.id As t1_id,t1.legend As t1_legend,t1.url As t1_url, t1.matter_id As t1_matter_id "
                 + "From plugin_matter_annex t1 "
-                + "Where t1.legend like ? "
+                + "Where t1.legend like ? and t1.matter_id is not null "
                 + "Order By t1.id Asc";
 
         return jdbcTemplate.query(sql, new Object[]{"%" + name + "%"}, new RowMapper<MatterAnnex>() {

@@ -14,10 +14,6 @@
         eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
         if (restore) selObj.selectedIndex=0;
       }
-      function jumpPage(obj){
-          var page = obj.options[obj.selectedIndex].text -1 ;
-          window.location = '<s:url value="/online/search/' + page + '_%{key}" id="pageUrl" escapeAmp="false"/>';
-      }
     </script>
   </head>
   <body>
@@ -32,20 +28,23 @@
       <div class="clearfloat"></div>
       <div class="out_line">
         <div class="in_line">
-          <h5>检索结果</h5>
-          <s:if test="selectId==1">
+          <div class="more_main">
+          <h4>检索结果</h4>
           <div class="bs_program">
+          <ul class="list01">
+          <s:if test="selectId==1">
           <s:iterator value="workings" id="working">
-            <s:url value="/online/matter/%{#working.id}.html" id="matterUrl" escapeAmp="false"/>
-            <h4><a href="<s:property value="matterUrl"/>" target="_blank"><s:property value="#working.name"/></a></h4>
+            <s:url value="/online/matter/%{#working.organ.id}_%{#working.id}.html" id="matterUrl" escapeAmp="false"/>
+            <li><a href="<s:property value="matterUrl"/>" target="_blank"><s:property value="#working.name"/></a></li>
+            <!-- 
             <s:iterator value="children" id="child" status="st">
               <s:if test="id != null">
               <s:url value="/online/working/%{#child.id}_%{#working.id}.html" id="workingUrl" escapeAmp="false"/>
               <p class="pro_tit"><a href="<s:property value="workingUrl"/>" target="_blank" ><s:property value="#child.name"/></a></p>
               </s:if>
             </s:iterator>
+             -->
           </s:iterator>
-          </div>
             <!-- 
             <ul class="bs_list">
             <s:iterator value="children" id="child" status="st">
@@ -60,56 +59,36 @@
           </s:if>
           <s:else>
           <s:iterator value="annexs" id="matterAnnex">
-            <p><a href="<s:property value="#matterAnnex.url"/>"><s:property value="#matterAnnex.legend"/></a></p>
+            <li><a href="<s:property value="#matterAnnex.url"/>"><s:property value="#matterAnnex.legend"/></a></li>
           </s:iterator>
           </s:else>
-        </div>
-        <div class="clearfloat"></div>
-        <p class="page_num">
-          <table width="100%"  border="0" cellspacing="0" cellpadding="0">
-            <tr>
-              <td height="30" bgcolor="#F2F2F2" class="li_line">
-              <div align="center" class="hui">
-                             共<s:property value="page.pageCount"/>页&nbsp;当前为第<s:property value="page.page"/>页&nbsp;
-               <s:if test="page.pagePrev == -1">
-                             上一页
-               </s:if>
-               <s:else>
-               <s:url value="/online/search/%{page.pagePrev-1}_%{key}" id="pageUrl" escapeAmp="false"/>
-               <a href="<s:property value="pageUrl"/>">上一页</a>
-               </s:else>
-               <s:iterator value="page.pageList">
-               <s:if test = "page.page == top">
-               <strong><s:property value="top"/></strong>
-               </s:if>
-               <s:else>
-               <s:url value="/online/search/%{top-1}_%{key}" id="pageUrl" escapeAmp="false"/>
-               <a href="<s:property value="pageUrl"/>"><s:property value="top"/></a>
-               </s:else>&nbsp;
-               </s:iterator>
-               <s:if test="page.pageNext == -1">
-                             下一页
-               </s:if>
-               <s:else>
-               <s:url value="/online/search/%{page.pageNext-1}_%{key}" id="pageUrl" escapeAmp="false"/>
-               <a href="<s:property value="pageUrl"/>">下一页</a>
-               </s:else>&nbsp;转到
-               <select name="select" class="hui" onchange="jumpPage(this)">
-               <s:iterator value="page.pageListAll">
-               <s:if test = "page.page==top">
-               <option selected><s:property value="top"/></option>
-               </s:if>
-               <s:else>
-               <option><s:property value="top"/></option>
-               </s:else>
-               </s:iterator>
-               </select>页
-             </div>
-             </td>
-            </tr>
-          </table>
-         </p>
+          </ul>
+          </div>
+          <div class="clearfloat"></div>
+          <div class="page_num">
+            <span>共<s:property value="page.pageCount"/>页</span><span>第<s:property value="page.page"/>页</span>
+            <s:if test="page.pagePrev == -1"><span>上一页</span></s:if>
+            <s:else>
+            <s:url value="/online/search/%{page.pagePrev-1}_%{key}" id="pageUrl" escapeAmp="false"/>
+            <a href="<s:property value="pageUrl"/>">上一页</a>
+            </s:else>
+            <s:iterator value="page.pageList">
+            <s:if test = "page.page == top"><span class="act"><s:property value="top"/></span></s:if>
+            <s:else>
+            <s:url value="/online/search/%{top-1}_%{key}" id="pageUrl" escapeAmp="false"/>
+            <a href="<s:property value="pageUrl"/>"><s:property value="top"/></a>
+            </s:else>
+            </s:iterator>
+            <s:if test="page.pageNext == -1"><span>下一页</span></s:if>
+            <s:else>
+            <s:url value="/online/search/%{page.pageNext-1}_%{key}" id="pageUrl" escapeAmp="false"/>
+            <a href="<s:property value="pageUrl"/>">下一页</a>
+            </s:else>
+          </div>
+		  <div class="clearfloat"></div>
        </div>
+        </div>
+        </div>
        <!--脚注信息-->
       <div class="clearfloat"></div>
       <s:include value="../footer.jsp"/>

@@ -55,6 +55,7 @@
             </tr>
             </s:iterator>
           </table>
+          <div class="num">
           <div class="page_num">
             <span>共<s:property value="page.pageCount"/>页</span><span>第<s:property value="page.page"/>页</span>
             <s:if test="page.pagePrev == -1"><span>上一页</span></s:if>
@@ -74,6 +75,7 @@
             <s:url id="pageUrl" value="/interaction/list/page/%{type}_%{page.pageNext-1}_%{currentTable}.html" escapeAmp="false"/>
             <a href="<s:property value="pageUrl"/>">下一页</a>
             </s:else>
+          </div>
           </div>
 		  <div class="clearfloat"></div>
         </div>

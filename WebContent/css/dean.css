@@ -213,6 +213,7 @@ h2{ height:36px; background:url(../images/zjda_tit.gif) no-repeat; line-height:3
 .list01{ margin:0 50px; }
 .list01 li{ height:35px; line-height:35px; border-bottom:1px dotted #CCC; font-size:14px; background:url(../images/icon01.gif) no-repeat 0 center; text-indent:1.5em; }
 .list01 li span{ float:right; color:#39F; }
+.num{padding-left:120px;}
 .page_num{ padding-left:60px; margin-top:10px; }
 .page_num span{ display:block; padding:3px 9px; float:left; margin:0 2px; border:1px solid #999; }
 .page_num .act{ display:block; padding:3px 9px; float:left; margin:0 2px; border:1px solid #DB5700; background:#F60; color:#FFF; }

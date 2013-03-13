@@ -36,12 +36,15 @@
               <a href="<s:property value="matterUrl"/>">办事指南</a>
             </li>
             </s:if>
-            <li><a href="http://218.87.91.208:8008/outportal">网上申报</a></li>
+            <li><a href="http://218.65.5.117:8008/outportal/index.jsp">网上申报</a></li>
             <s:if test="working.matter!=null">
-            <li class="current">网上咨询</li>
+            <li class="current"><a href="http://218.65.5.117:8008/outportal/outquery/outquery.jsp">网上咨询</a></li>
             <li>
+              <!-- 
               <s:url value="/online/advisorsearch/%{organId}_%{workingId}.html" id="advisorsearchUrl" escapeAmp="false"/>
               <a href="<s:property value="advisorsearchUrl"/>">在线查询</a>
+              -->
+              <a href="http://218.65.5.117:8008/outportal/outquery/outquerylist.jsp">在线查询</a>
             </li>
             <s:if test="!working.matter.matterAnnexs.isEmpty()">
             <li>

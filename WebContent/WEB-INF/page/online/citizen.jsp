@@ -31,44 +31,48 @@
       </div>
       <div class="out_line">
         <div class="in_line" style="padding:0;">
-          <p>绿色通道</p>
-          <ul class="bs_list">
+          <h5>绿色通道</h5>
+          <ul class="bs_list" style="padding-left:60px;">
             <s:iterator value="citizens" status="st">
             <s:if test="id == citizen.id">
            	  <li><a href=""><span style="font-weight: bold;"><s:property value="name"/></span></a></li>
             </s:if>
             <s:else>
+              <s:if test="id != null">
               <s:url value="/online/citizen/%{id}.html" id="citizenUrl" escapeAmp="false"/>
               <li><a href="<s:property value="citizenUrl"/>"><s:property value="name"/></a></li>
+              </s:if>
             </s:else>
             </s:iterator>
           </ul>
           <div class="clearfloat"></div>
           <div class="bs_program">
-            <h4><s:property value="%{working.name}"/></h4>
+            <h4><s:property value="citizen.name"/></h4>
             <s:iterator value="matters" id='matter'>
             <s:if test="matter!=null">
             <s:if test="organ.name!=null">
             <p class="pro_tit"><s:property value="name"/></p>
             <s:url value="/online/citizen/%{id}.html" id="citizenUrl" escapeAmp="false"/>
             <p class="department">[<span>受理部门：</span><a href="<s:property value="citizenUrl"/>" target="_blank"><s:property value="organ.name"/></a>]</p>
-            </s:if>
             <p class="pro_detail">
               <s:url value="/online/matter/%{organ.id}_%{id}.html" id="matterUrl" escapeAmp="false"/>
               <a href="<s:property value="matterUrl"/>" target="_blank">办事指南</a>
-              &nbsp;－－－&nbsp;<a href="http://218.87.91.208:8008/outportal">网上申报</a>
-              <s:if test="organ.name != null">
+              &nbsp;－－－&nbsp;<a href="http://218.65.5.117:8008/outportal/index.jsp">网上申报</a>
+              <!--
               <s:url value="/online/advisor/%{organ.id}_%{id}.html" id="advisoryUrl" escapeAmp="false"/>
               &nbsp;－－－&nbsp;<a href="<s:property value="advisoryUrl"/>" target="_blank">在线咨询</a>
               <s:url value="/online/advisorsearch/%{organ.id}_%{id}.html" id="advisorySearchUrl" escapeAmp="false"/>
               &nbsp;－－－&nbsp;<a href="<s:property value="advisorySearchUrl"/>"  target="_blank">在线查询</a>
+              -->
+              &nbsp;－－－&nbsp;<a href="http://218.65.5.117:8008/outportal/outquery/outquery.jsp">在线咨询</a>
+              &nbsp;－－－&nbsp;<a href="http://218.65.5.117:8008/outportal/outquery/outquerylist.jsp">在线查询</a>
               <s:if test="!working.matter.matterAnnexs.isEmpty()">
               <s:url value="/online/matterannex/%{organ.id}_%{id}.html" id="annexUrl" escapeAmp="false"/>
               &nbsp;－－－&nbsp;<a href="<s:property value="annexUrl"/>"  target="_blank">表格下载</a> 
               </s:if>
-              </s:if>
             </p>
             <div class="clearfloat"></div>
+            </s:if>
             </s:if>
             </s:iterator>
           </div>
